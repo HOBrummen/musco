@@ -21,20 +21,20 @@
 
 <script>
 export default {
-  name: "Notices",
+  name: 'Notices',
   data: () => ({
     notices: [
       {
-        _id: "ti38d0cikds",
-        title: "test",
-        content: "Dit is een test melding",
+        _id: 'ti38d0cikds',
+        title: 'test',
+        content: 'Dit is een test melding'
       },
       {
-        _id: "ti38d0cikdsd",
-        title: "test",
-        content: "Dit is een test melding",
-      },
-    ],
-  }),
+        _id: 'ti38d0cikdsd',
+        title: 'test',
+        content: 'Dit is een test melding'
+      }
+    ]
+  })
 }
 </script>

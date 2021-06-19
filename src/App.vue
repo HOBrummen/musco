@@ -2,7 +2,7 @@
   <v-app @contextmenu="handler($event)">
     <v-main>
       <router-view />
-      <v-bottom-navigation app v-model="value">
+      <v-bottom-navigation app v-model="value" v-if="$store.state.user.user">
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
             <router-link to="/absences">
@@ -91,18 +91,25 @@
 export default {
   data() {
     return {
-      value: "notices",
+      value: 'notices',
       // TODO: Add logged in username
-      username: "John Joe",
+      username: 'John Joe',
       // TODO: add authentication statement
-      admin: true,
+      admin: true
     }
   },
   methods: {
     handler: (e) => {
       e.preventDefault()
-    },
+    }
   },
+  created() {
+    this.$firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.dispatch('autoSignIn', user)
+      }
+    })
+  }
 }
 </script>
 

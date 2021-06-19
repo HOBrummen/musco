@@ -30,7 +30,7 @@
       </v-row>
       <v-row>
         <v-col>
-          <v-btn block color="primary">log uit</v-btn>
+          <v-btn block color="primary" @click.prevent="onLogout">log uit</v-btn>
         </v-col>
       </v-row>
     </v-container>
@@ -39,21 +39,27 @@
 
 <script>
 export default {
-  name: "Account",
+  name: 'Account',
   data: () => ({
     // eslint-disable-next-line global-require
-    image: require("@/assets/accountBackground-min.jpg"),
+    image: require('@/assets/accountBackground-min.jpg'),
     user: {
-      name: "John Joe",
-      email: "John.Joe@gmail.com",
-      instruments: ["Hoorn"],
+      name: 'John Joe',
+      email: 'John.Joe@gmail.com',
+      instruments: ['Hoorn'],
       orchestras: [
-        "Harmonie orkest",
-        "Pretband",
-        "Opleidingsorkest A",
-        "Opleidingsorkest B",
-      ],
-    },
+        'Harmonie orkest',
+        'Pretband',
+        'Opleidingsorkest A',
+        'Opleidingsorkest B'
+      ]
+    }
   }),
+  methods: {
+    onLogout() {
+      this.$store.dispatch('logout')
+      this.$router.push('/login')
+    }
+  }
 }
 </script>

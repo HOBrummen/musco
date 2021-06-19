@@ -84,45 +84,45 @@
 </template>
 
 <script>
-import { required } from "vee-validate/dist/rules"
+import { required } from 'vee-validate/dist/rules'
 import {
   extend,
   ValidationObserver,
   ValidationProvider,
-  setInteractionMode,
-} from "vee-validate"
-import { isMonday, isTuesday, isThursday, getDate, format } from "date-fns"
+  setInteractionMode
+} from 'vee-validate'
+import { isMonday, isTuesday, isThursday, getDate, format } from 'date-fns'
 
-import { nl } from "date-fns/locale"
+import { nl } from 'date-fns/locale'
 
-setInteractionMode("eager")
+setInteractionMode('eager')
 
-extend("required", {
+extend('required', {
   ...required,
-  message: "{_field_} mag niet leeg zijn.",
+  message: '{_field_} mag niet leeg zijn.'
 })
 
 export default {
-  name: "Absences",
+  name: 'Absences',
   components: {
     ValidationProvider,
-    ValidationObserver,
+    ValidationObserver
   },
   data: () => ({
     // TODO: Put logged in user here.
     user: {
-      name: "John Joe",
+      name: 'John Joe',
       orchestras: [
-        "Harmonie orkest",
-        "Pretband",
-        "Opleidingsorkest A",
-        "Opleidingsorkest B",
-      ],
+        'Harmonie orkest',
+        'Pretband',
+        'Opleidingsorkest A',
+        'Opleidingsorkest B'
+      ]
     },
-    orchestra: "",
-    reason: "",
+    orchestra: '',
+    reason: '',
     dates: [],
-    selectedOrchestra: "",
+    selectedOrchestra: ''
   }),
 
   methods: {
@@ -133,30 +133,30 @@ export default {
     allowedDates(strDate) {
       const date = new Date(strDate)
       switch (this.selectedOrchestra) {
-        case "Harmonie orkest":
+        case 'Harmonie orkest':
           return isMonday(date)
-        case "Pretband":
+        case 'Pretband':
           return !isTuesday()
             ? false
             : !!(getDate(date) > 1 && getDate(date) < 10)
-        case "Opleidingsorkest A":
+        case 'Opleidingsorkest A':
           return isThursday(date)
-        case "Opleidingsorkest B":
+        case 'Opleidingsorkest B':
           return isThursday(date)
         default:
           return false
       }
-    },
+    }
   },
   computed: {
     today: () => new Date().toISOString().substr(0, 10),
     dateRangeText: {
       get() {
         return this.dates
-          .map((date) => format(new Date(date), "d MMMM", { locale: nl }))
-          .join(" t/m ")
-      },
-    },
-  },
+          .map((date) => format(new Date(date), 'd MMMM', { locale: nl }))
+          .join(' t/m ')
+      }
+    }
+  }
 }
 </script>
