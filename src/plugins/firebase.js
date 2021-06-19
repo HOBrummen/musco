@@ -3,6 +3,7 @@ import Firebase from 'firebase/app'
 
 import 'firebase/analytics'
 import 'firebase/auth'
+import 'firebase/firestore'
 
 Firebase.initializeApp({
     apiKey: process.env.VUE_APP_API_KEY,

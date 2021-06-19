@@ -1,4 +1,5 @@
 import firebase from '../../plugins/firebase'
+import auth from './auth'
 
 export default {
     state: {
@@ -10,79 +11,22 @@ export default {
         }
     },
     actions: {
-        signUserUp ({ commit }, payload) {
-            commit('setLoading', true)
-            commit('clearError')
-            firebase
-                .auth()
-                .createUserWithEmailAndPassword(payload.email, payload.password)
-                .then(user => {
-                    commit('setLoading', false)
-                    const newUser = {
-                        id: user.uid,
-                        name: user.displayName,
-                        email: user.email,
-                        photoUrl: user.photoURL
-                    }
-                    commit('setUser', newUser)
-                })
-                .catch(error => {
-                    commit('setLoading', false)
-                    commit('setError', error)
-                    console.log(error)
-                })
-        },
-        signUserIn ({ commit }, payload) {
-            commit('setLoading', true)
-            commit('clearError')
-            firebase
-                .auth()
-                .signInWithEmailAndPassword(payload.email, payload.password)
-                .then(user => {
-                    commit('setLoading', false)
-                    const newUser = {
-                        id: user.uid,
-                        name: user.displayName,
-                        email: user.email,
-                        photoUrl: user.photoURL
-                    }
-                    commit('setUser', newUser)
-                })
-                .catch(error => {
-                    commit('setLoading', false)
-                    commit('setError', error)
-                    console.log(error)
-                })
-        },
-        autoSignIn ({ commit }, payload) {
-            commit('setLoading', true)
-            commit('setUser', {
-                id: payload.uid,
-                name: payload.displayName,
-                email: payload.email,
-                photoUrl: payload.photoURL
-            })
-            commit('setLoading', false)
-        },
-        resetPasswordWithEmail ({ commit }, payload) {
-            const { email } = payload
+        ...auth,
+        getUser ({ commit }) {
             commit('setLoading', true)
             firebase
-                .auth()
-                .sendPasswordResetEmail(email)
-                .then(() => {
+                .firestore()
+                .collection('users')
+                .doc('9BIjlLRPVbbD0kkdsqRP')
+                .get({ source: 'server' })
+                .then((doc) => {
                     commit('setLoading', false)
-                    console.log('Email Sent')
-                })
-                .catch(error => {
+                    commit('setUser', doc.data())
+                }).catch((err) => {
                     commit('setLoading', false)
-                    commit('setError', error)
-                    console.log(error)
+                    commit('setError', err)
+                    console.log(err)
                 })
-        },
-        logout ({ commit }) {
-            firebase.auth().signOut()
-            commit('setUser', null)
         }
     },
     getters: {

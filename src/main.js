@@ -6,7 +6,6 @@ import vuetify from './plugins/vuetify'
 import chroma from './plugins/chroma'
 import sentry from './plugins/sentry'
 import firebase from './plugins/firebase'
-import fontAwesome from './plugins/fontAwesome'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -32,6 +31,5 @@ new Vue({
   chroma,
   sentry,
   firebase,
-  fontAwesome,
   render: (h) => h(App)
 }).$mount('#app')

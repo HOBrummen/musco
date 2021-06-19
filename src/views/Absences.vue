@@ -6,7 +6,7 @@
           <validation-provider v-slot="{ errors }" name="Name" rules="required">
             <v-text-field
               prepend-icon="fa-user"
-              v-model="user.name"
+              v-model="displayName"
               :error-messages="errors"
               label="Naam"
               required
@@ -111,7 +111,6 @@ export default {
   data: () => ({
     // TODO: Put logged in user here.
     user: {
-      name: 'John Joe',
       orchestras: [
         'Harmonie orkest',
         'Pretband',
@@ -124,7 +123,9 @@ export default {
     dates: [],
     selectedOrchestra: ''
   }),
-
+  mounted() {
+    
+  },
   methods: {
     submit() {
       this.$refs.observer.validate()
@@ -149,6 +150,12 @@ export default {
     }
   },
   computed: {
+    email() {
+      return this.$store.getters.user.email
+    },
+    displayName() {
+      return this.$store.getters.user.displayName || 'test user'
+    },
     today: () => new Date().toISOString().substr(0, 10),
     dateRangeText: {
       get() {

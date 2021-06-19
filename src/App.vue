@@ -2,7 +2,11 @@
   <v-app @contextmenu="handler($event)">
     <v-main>
       <router-view />
-      <v-bottom-navigation app v-model="value" v-if="$store.state.user.user">
+      <v-bottom-navigation
+        app
+        v-model="value"
+        v-if="$store.getters.user || false"
+      >
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
             <router-link to="/absences">
@@ -55,14 +59,14 @@
                 v-bind="attrs"
                 v-on="on"
               >
-                <span v-if="$vuetify.breakpoint.width > 460">{{
-                  username
-                }}</span>
+                <span v-if="$vuetify.breakpoint.width > 460">
+                  {{ displayName }}
+                </span>
                 <v-icon>fa-user</v-icon>
               </v-btn>
             </router-link>
           </template>
-          <span>{{ username }}</span>
+          <span>{{ displayName }}</span>
         </v-tooltip>
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
@@ -89,13 +93,17 @@
 
 <script>
 export default {
+  name: 'app',
   data() {
     return {
       value: 'notices',
-      // TODO: Add logged in username
-      username: 'John Joe',
       // TODO: add authentication statement
       admin: true
+    }
+  },
+  computed: {
+    displayName() {
+      return this.$store.getters.user.displayName || 'test user'
     }
   },
   methods: {
