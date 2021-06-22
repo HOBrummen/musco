@@ -1,52 +1,52 @@
 import firebase from '../../plugins/firebase'
 
 export default {
-    signUserUp ({ commit }, payload) {
-        commit('setLoading', true)
+    async signUserUp ({ commit }, payload) {
         commit('clearError')
-        firebase
-            .auth()
-            .createUserWithEmailAndPassword(payload.email, payload.password)
-            .then(user => {
-                commit('setLoading', false)
-                const newUser = {
-                    id: user.uid,
-                    name: user.displayName,
-                    email: user.email,
-                    photoUrl: user.photoURL
-                }
-                commit('setUser', newUser)
-            })
-            .catch(error => {
-                commit('setLoading', false)
-                commit('setError', error)
-                console.log(error)
-            })
+        commit('setLoading', true)
+        try {
+            const doc = await firebase
+                .auth()
+                .createUserWithEmailAndPassword(payload.email, payload.password)
+            const newUser = {
+                id: doc.uid,
+                name: doc.displayName,
+                email: doc.email,
+                photoUrl: doc.photoURL
+            }
+            commit('setUser', newUser)
+        } catch (err) {
+            commit('setError', err)
+        } finally {
+            commit('setLoading', false)
+
+        }
+
     },
-    signUserIn ({ commit }, payload) {
+    async signUserIn ({ commit }, payload) {
         commit('setLoading', true)
         commit('clearError')
-        firebase
-            .auth()
-            .signInWithEmailAndPassword(payload.email, payload.password)
-            .then(user => {
-                commit('setLoading', false)
-                const newUser = {
-                    id: user.uid,
-                    name: user.displayName,
-                    email: user.email,
-                    photoUrl: user.photoURL
-                }
-                commit('setUser', newUser)
-            })
-            .catch(error => {
-                commit('setLoading', false)
-                commit('setError', error)
-                console.log(error)
-            })
+        try {
+            const doc = await firebase
+                .auth()
+                .signInWithEmailAndPassword(payload.email, payload.password)
+            commit('setLoading', false)
+            const newUser = {
+                id: doc.uid,
+                name: doc.displayName,
+                email: doc.email,
+                photoUrl: doc.photoURL
+            }
+            commit('setUser', newUser)
+        } catch (err) {
+            commit('setError', err)
+        } finally {
+            commit('setLoading', false)
+        }
     },
     autoSignIn ({ commit }, payload) {
         commit('setLoading', true)
+        commit('clearError')
         const newUser = {
             id: payload.uid,
             name: payload.displayName,
@@ -56,23 +56,30 @@ export default {
         commit('setUser', newUser)
         commit('setLoading', false)
     },
-    resetPasswordWithEmail ({ commit }, payload) {
+    async resetPasswordWithEmail ({ commit }, payload) {
         const { email } = payload
         commit('setLoading', true)
-        firebase
-            .auth()
-            .sendPasswordResetEmail(email)
-            .then(() => {
-                commit('setLoading', false)
-            })
-            .catch(error => {
-                commit('setLoading', false)
-                commit('setError', error)
-                console.log(error)
-            })
+        try {
+            await firebase
+                .auth()
+                .sendPasswordResetEmail(email)
+        } catch (err) {
+            commit('setError', err)
+
+        } finally {
+            commit('setLoading', false)
+        }
     },
-    logout ({ commit }) {
-        firebase.auth().signOut()
-        commit('setUser', null)
+    async logout ({ commit }) {
+        commit('setLoading', true)
+        commit('clearError')
+        try {
+            await firebase.auth().signOut()
+            commit('setUser', null)
+        } catch (err) {
+            commit('setError', err)
+        } finally {
+            commit('setLoading', false)
+        }
     }
 }

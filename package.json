@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
+    "test:unit": "vue-cli-service test:unit -u",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "eslint --fix"
   },
@@ -24,6 +24,7 @@
     "firebaseui": "^4.8.0",
     "register-service-worker": "^1.7.1",
     "roboto-fontface": "*",
+    "sinon": "^11.1.1",
     "vee-validate": "^3.4.9",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
@@ -31,6 +32,7 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@firebase/rules-unit-testing": "^1.3.8",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-e2e-nightwatch": "~4.5.0",
     "@vue/cli-plugin-eslint": "^4.5.13",
@@ -94,6 +96,31 @@
     "not ie <= 10"
   ],
   "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,vue}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      },
+      "./src/store/": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "verbose": true,
+    "setupFilesAfterEnv": [
+      "./tests/setup.js"
+    ],
     "preset": "@vue/cli-plugin-unit-jest"
   },
   "gitHooks": {

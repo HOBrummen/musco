@@ -1,6 +1,7 @@
 <template>
   <v-flex style="position: absolute" d-flex justify-center xs12 sm6 offset-sm3>
     <v-alert
+      :id="code"
       :type="severity"
       dismissible
       @input="onClose"
@@ -15,7 +16,7 @@
 
 <script>
 export default {
-  props: ['text', 'severity'],
+  props: ['text', 'severity', 'code'],
   data() {
     return {
       alert: true

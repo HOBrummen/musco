@@ -2,13 +2,13 @@
 node_modules
 /dist
 
+# Reports and logs
 /tests/e2e/reports/
-selenium-debug.log
-chromedriver.log
-geckodriver.log
+/coverage
+*.log
 
 
-# local env files
+# Local env files
 .env
 .env.local
 .env.*.local

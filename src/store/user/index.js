@@ -12,21 +12,20 @@ export default {
     },
     actions: {
         ...auth,
-        getUser ({ commit }) {
+        async getUser ({ commit }, id) {
             commit('setLoading', true)
-            firebase
-                .firestore()
-                .collection('users')
-                .doc('9BIjlLRPVbbD0kkdsqRP')
-                .get({ source: 'server' })
-                .then((doc) => {
-                    commit('setLoading', false)
-                    commit('setUser', doc.data())
-                }).catch((err) => {
-                    commit('setLoading', false)
-                    commit('setError', err)
-                    console.log(err)
-                })
+            try {
+                const doc = await firebase
+                    .firestore()
+                    .collection('users')
+                    .doc(id)
+                    .get({ source: 'server' })
+                commit('setUser', doc.data())
+            } catch (err) {
+                commit('setError', err)
+            } finally {
+                commit('setLoading', false)
+            }
         }
     },
     getters: {

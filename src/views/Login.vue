@@ -5,6 +5,7 @@
         @dismissed="onDismissed"
         :text="error.message"
         severity="error"
+        :code="error.code"
       ></app-alert>
     </v-layout>
     <v-layout>

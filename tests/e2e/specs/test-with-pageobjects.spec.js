@@ -9,12 +9,12 @@
 module.exports = {
   beforeEach: (browser) => browser.init(),
 
-  "e2e tests using page objects": (browser) => {
+  'e2e tests using page objects': (browser) => {
     const homepage = browser.page.homepage()
-    homepage.waitForElementVisible("@appContainer")
+    homepage.waitForElementVisible('@appContainer')
 
     const app = homepage.section.app
-    app.assert.elementCount("@logo", 0)
+    app.assert.elementCount('@logo', 0)
     browser.end()
-  },
+  }
 }
