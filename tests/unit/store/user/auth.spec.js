@@ -26,7 +26,7 @@ describe('store/user/auth', () => {
         authMock = null
     })
     describe('actions', () => {
-            it('sign up a user', async () => {
+            xit('sign up a user', async () => {
                 const commit = Sinon.spy()
 
                 actions.signUserUp({ commit, state }, authMock)
@@ -35,7 +35,7 @@ describe('store/user/auth', () => {
                     ['setLoading', true]
                 ])
             })
-        it('sign in a user', async () => {
+        xit('sign in a user', async () => {
             const commit = Sinon.spy()
 
             actions.signUserIn({ commit, state }, authMock)
@@ -60,22 +60,22 @@ describe('store/user/auth', () => {
                 ['setLoading', false]
             ])
         })
-    })
-    it('send password recovery email', async () => {
-        const commit = Sinon.spy()
-
-        actions.resetPasswordWithEmail({ commit, state }, authMock)
-        expect(commit.args).toEqual([
-            ['setLoading', true]
-        ])
-    })
-    it('sign in a user', async () => {
-        const commit = Sinon.spy()
-
-        actions.logout({ commit, state }, authMock)
-        expect(commit.args).toEqual([
-            ['clearError'],
-            ['setLoading', true]
-        ])
+        xit('send password recovery email', async () => {
+            const commit = Sinon.spy()
+    
+            actions.resetPasswordWithEmail({ commit, state }, authMock)
+            expect(commit.args).toEqual([
+                ['setLoading', true]
+            ])
+        })
+        xit('sign in a user', async () => {
+            const commit = Sinon.spy()
+    
+            actions.logout({ commit, state }, authMock)
+            expect(commit.args).toEqual([
+                ['clearError'],
+                ['setLoading', true]
+            ])
+        })
     })
 })
