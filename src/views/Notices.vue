@@ -1,7 +1,7 @@
 <template>
   <v-layout v-if="notices.length > 0">
     <v-expansion-panels inset focusable>
-      <v-expansion-panel v-for="notice in notices" :key="notice._id">
+      <v-expansion-panel v-for="notice in notices" :key="notice.id">
         <v-expansion-panel-header>
           {{ notice.title }}
         </v-expansion-panel-header>
@@ -22,19 +22,16 @@
 <script>
 export default {
   name: 'Notices',
-  data: () => ({
-    notices: [
-      {
-        _id: 'ti38d0cikds',
-        title: 'test',
-        content: 'Dit is een test melding'
-      },
-      {
-        _id: 'ti38d0cikdsd',
-        title: 'test',
-        content: 'Dit is een test melding'
-      }
-    ]
-  })
+  mounted() {
+    this.$store.dispatch('subscribeNotices')
+  },
+  destroyed() {
+    this.$store.dispatch('unsubscribeNotices')
+  },
+  computed: {
+    notices() {
+      return this.$store.getters.notices
+    }
+  }
 }
 </script>

@@ -12,15 +12,17 @@ export default {
     },
     actions: {
         ...auth,
-        async getUser ({ commit }, id) {
+        async getUser ({ commit, state }, id) {
             commit('setLoading', true)
             try {
                 const doc = await firebase
                     .firestore()
                     .collection('users')
-                    .doc(id)
+                    .doc('9BIjlLRPVbbD0kkdsqRP')
                     .get({ source: 'server' })
-                commit('setUser', doc.data())
+                    const uid = id
+                    uid + id
+                commit('setUser', {...doc.data(), ...state.user})
             } catch (err) {
                 commit('setError', err)
             } finally {

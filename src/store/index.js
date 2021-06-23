@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import user from './user'
 import shared from './shared'
+import notices from './notices'
 
 // TODO: Add below line in docs about istanbul
 /* istanbul ignore next */
@@ -11,6 +12,7 @@ export default new Vuex.Store({
   strict: true,
   modules: {
     user,
-    shared
+    shared,
+    notices
   }
 })

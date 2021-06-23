@@ -24,8 +24,8 @@ export default {
 
     },
     async signUserIn ({ commit }, payload) {
-        commit('setLoading', true)
         commit('clearError')
+        commit('setLoading', true)
         try {
             const doc = await firebase
                 .auth()
@@ -45,8 +45,8 @@ export default {
         }
     },
     autoSignIn ({ commit }, payload) {
-        commit('setLoading', true)
         commit('clearError')
+        commit('setLoading', true)
         const newUser = {
             id: payload.uid,
             name: payload.displayName,
@@ -71,8 +71,8 @@ export default {
         }
     },
     async logout ({ commit }) {
-        commit('setLoading', true)
         commit('clearError')
+        commit('setLoading', true)
         try {
             await firebase.auth().signOut()
             commit('setUser', null)
