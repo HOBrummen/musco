@@ -19,6 +19,8 @@ library.add(faLockOpen, faEnvelope, faSpinner)
 
 const AlertCmp = () => import('./components/shared/Alert.vue')
 
+console.log(process.env.VUE_APP_TEST_ENV)
+
 Vue.config.productionTip = false
 
 Vue.component('fa-icon', FontAwesomeIcon)
