@@ -19,7 +19,7 @@ library.add(faLockOpen, faEnvelope, faSpinner)
 
 const AlertCmp = () => import('./components/shared/Alert.vue')
 
-console.log(process.env.VUE_APP_TEST_ENV)
+console.log(process.env.VUE_APP_PROJECT_ID)
 
 Vue.config.productionTip = false
 
