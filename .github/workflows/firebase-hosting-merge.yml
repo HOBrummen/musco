@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm ci
       - run: npm run test:unit
-      - run: VUE_APP_PROJECT_ID=${{ secrets.VUE_APP_PROJECT_ID }} && VUE_APP_AUTH_DOMAIN=${{ secrets.VUE_APP_AUTH_DOMAIN }} npm run build
+      - run: VUE_APP_PROJECT_ID=${{ env.VUE_APP_PROJECT_ID }} && VUE_APP_AUTH_DOMAIN=${{ env.VUE_APP_AUTH_DOMAIN }} npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
