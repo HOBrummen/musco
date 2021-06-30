@@ -19,7 +19,6 @@ jobs:
       VUE_APP_MEASUREMENT_ID: ${{ secrets.VUE_APP_MEASUREMENT_ID }}
     steps:
       - uses: actions/checkout@v2
-      - name: create .env
       - run: |
           touch .env
           echo VUE_APP_PROJECT_ID =${{ secrets.VUE_APP_PROJECT_ID }} >> .env
