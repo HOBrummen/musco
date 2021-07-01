@@ -1,15 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Alert.vue renders props when passed 1`] = `
-<div class="flex d-flex justify-center xs12 sm6 offset-sm3" style="position: absolute;" txt="A new alert" code="auth/credential-already-in-use">
-  <transition-stub name="fade-transition">
-    <div role="alert" class="v-alert v-sheet theme--dark elevation-5 error">
-      <div class="v-alert__wrapper"><i aria-hidden="true" class="v-icon notranslate v-alert__icon mdi mdi-alert theme--dark"></i>
-        <div class="v-alert__content">
-
-        </div><button type="button" class="v-alert__dismissible v-btn v-btn--icon v-btn--round theme--dark v-size--small" aria-label="Close"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-close-circle theme--dark"></i></span></button>
+<div class="flex xs12 md6 sm6 offset-sm3">
+  <div class="v-snack v-snack--active v-snack--has-background v-snack--top" style="padding: 0px 0px 0px 0px;">
+    <transition-stub name="fade-transition">
+      <div class="v-snack__wrapper v-sheet theme--dark elevation-5 error">
+        <div role="status" aria-live="polite" class="v-snack__content">
+          A new alert
+        </div>
+        <div class="v-snack__action "></div>
       </div>
-    </div>
-  </transition-stub>
+    </transition-stub>
+  </div>
 </div>
 `;
