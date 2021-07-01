@@ -1,13 +1,5 @@
 <template>
   <v-container>
-    <v-layout v-if="error">
-      <app-alert
-        @dismissed="onDismissed"
-        :text="error.message"
-        severity="error"
-        :code="error.code"
-      ></app-alert>
-    </v-layout>
     <v-layout>
       <v-flex xs12 sm6 offset-sm3>
         <v-card>
@@ -88,9 +80,6 @@ export default {
     user() {
       return this.$store.getters.user
     },
-    error() {
-      return this.$store.getters.error
-    },
     loading() {
       return this.$store.getters.loading
     }
@@ -111,14 +100,11 @@ export default {
     },
     onResetPassword() {
       if (this.email === '') {
-        return this.$store.dispatch('setError', {
+        return this.$store.dispatch('setAlert', {
           message: 'Email can not be blank'
         })
       }
       this.$store.dispatch('resetPasswordWithEmail', { email: this.email })
-    },
-    onDismissed() {
-      this.$store.dispatch('clearError')
     }
   }
 }

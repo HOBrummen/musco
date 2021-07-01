@@ -1,6 +1,13 @@
 <template>
   <v-app @contextmenu="handler($event)">
     <v-main>
+      <app-alert
+        v-if="alert"
+        @dismissed="onDismissed"
+        :message="alert.message"
+        :severity="alert.severity"
+        :code="alert.code"
+      ></app-alert>
       <router-view />
       <v-bottom-navigation
         app
@@ -104,11 +111,17 @@ export default {
   computed: {
     displayName() {
       return this.$store.getters.user.displayName || 'test user'
+    },
+    alert() {
+      return this.$store.getters.alert
     }
   },
   methods: {
     handler: (e) => {
       e.preventDefault()
+    },
+    onDismissed() {
+      this.$store.dispatch('clearAlert')
     }
   },
   created() {

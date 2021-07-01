@@ -7,7 +7,7 @@ describe('store/shared', () => {
     beforeEach(() => {
         state = {
             loading: false,
-            error: null
+            alert: null
         }
     })
 
@@ -17,13 +17,13 @@ describe('store/shared', () => {
             expect(state.loading).toBe(true)
         })
         it('updates an error', () => {
-            mutations.setError(state, 'Generic errormessage')
-            expect(state.error).toBe('Generic errormessage')
+            mutations.setAlert(state, 'Generic errormessage')
+            expect(state.alert).toBe('Generic errormessage')
         })
 
         it('clears an error', () => {
-            mutations.clearError(state)
-            expect(state.error).toBe(null)
+            mutations.clearAlert(state)
+            expect(state.alert).toBe(null)
         })
     })
     describe('actions', () => {
@@ -38,15 +38,15 @@ describe('store/shared', () => {
         })
 
         it('sets an error', () => {
-            actions.setError({ commit, state }, 'Generic errormessage')
+            actions.setAlert({ commit, state }, 'Generic errormessage')
             expect(commit.args).toEqual([
-                ['setError', 'Generic errormessage']
+                ['setAlert', 'Generic errormessage']
             ])
         })
         it('clears an error', () => {
-            actions.clearError({ commit, state })
+            actions.clearAlert({ commit, state })
             expect(commit.args).toEqual([
-                ['clearError']
+                ['clearAlert']
             ])
         })
     })
@@ -58,9 +58,9 @@ describe('store/shared', () => {
         it('gets an error from state', () => {
             state = {
                 loading: false,
-                error: 'Generic errormessage'
+                alert: 'Generic errormessage'
             }
-            const result = getters.error(state)
+            const result = getters.alert(state)
             expect(result).toBe('Generic errormessage')
         })
     })

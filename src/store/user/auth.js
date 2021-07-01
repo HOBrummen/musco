@@ -2,7 +2,7 @@ import firebase from '../../plugins/firebase'
 
 export default {
     async signUserUp ({ commit }, payload) {
-        commit('clearError')
+        commit('clearAlert')
         commit('setLoading', true)
         try {
             const doc = await firebase
@@ -16,15 +16,13 @@ export default {
             }
             commit('setUser', newUser)
         } catch (err) {
-            commit('setError', err)
+            commit('setAlert', { message: err.message, severity: 'error' })
         } finally {
             commit('setLoading', false)
-
         }
-
     },
     async signUserIn ({ commit }, payload) {
-        commit('clearError')
+        commit('clearAlert')
         commit('setLoading', true)
         try {
             const doc = await firebase
@@ -39,13 +37,13 @@ export default {
             }
             commit('setUser', newUser)
         } catch (err) {
-            commit('setError', err)
+            commit('setAlert', { message: err.message, severity: 'error' })
         } finally {
             commit('setLoading', false)
         }
     },
     autoSignIn ({ commit }, payload) {
-        commit('clearError')
+        commit('clearAlert')
         commit('setLoading', true)
         const newUser = {
             id: payload.uid,
@@ -63,21 +61,21 @@ export default {
             await firebase
                 .auth()
                 .sendPasswordResetEmail(email)
+            commit('setAlert', { message: 'Email has been sent.', severity: 'success' })
         } catch (err) {
-            commit('setError', err)
-
+            commit('setAlert', { message: err.message, severity: 'error' })
         } finally {
             commit('setLoading', false)
         }
     },
     async logout ({ commit }) {
-        commit('clearError')
+        commit('clearAlert')
         commit('setLoading', true)
         try {
             await firebase.auth().signOut()
             commit('setUser', null)
         } catch (err) {
-            commit('setError', err)
+            commit('setAlert', { message: err.message, severity: 'error' })
         } finally {
             commit('setLoading', false)
         }

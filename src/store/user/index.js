@@ -18,13 +18,14 @@ export default {
                 const doc = await firebase
                     .firestore()
                     .collection('users')
+                    //TODO: make this the authenticated userid
                     .doc('9BIjlLRPVbbD0kkdsqRP')
                     .get({ source: 'server' })
                     const uid = id
                     uid + id
                 commit('setUser', {...doc.data(), ...state.user})
             } catch (err) {
-                commit('setError', err)
+                commit('setAlert', { message: err.message, severity: 'error' })
             } finally {
                 commit('setLoading', false)
             }

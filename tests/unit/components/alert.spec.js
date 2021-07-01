@@ -15,7 +15,8 @@ describe('Alert.vue', () => {
       localVue,
       vuetify,
       propsData: {
-        txt: 'A new alert', severity: 'error', code: 'auth/credential-already-in-use' }
+        message: 'A new alert', severity: 'error'
+      }
     })
   })
 
@@ -28,15 +29,5 @@ describe('Alert.vue', () => {
     expect(VAlert.html()).toMatchSnapshot()
     expect(VAlert.html()).toMatch('A new alert')
     // TODO: test if severity and errorcode are given
-  })
-
-  it('emits an event on dismiss', () => {
-    const event = jest.fn()
-    const close = VAlert.find('button.v-alert__dismissible')
-
-    VAlert.vm.$on('dismissed', event)
-    expect(event).toHaveBeenCalledTimes(0)
-    close.trigger('input')
-    expect(event).toHaveBeenCalledTimes(1)
   })
 })
