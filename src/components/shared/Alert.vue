@@ -1,30 +1,29 @@
 <template>
-  <v-flex style="position: absolute" d-flex justify-center xs12 sm6 offset-sm3>
-    <v-alert
-      :id="code"
-      :type="severity"
-      dismissible
-      @input="onClose"
+  <v-flex xs12 md6 sm6 offset-sm3>
+    <v-snackbar
+      top
+      :color="severity || 'info'"
+      @input="$emit('dismissed')"
       elevation="5"
       transition="fade-transition"
-      :value="alert"
+      :value="true"
+      app
     >
-      {{ text }}
-    </v-alert>
+      {{ message }}
+    </v-snackbar>
   </v-flex>
 </template>
 
 <script>
 export default {
-  props: ['text', 'severity', 'code'],
-  data() {
-    return {
-      alert: true
-    }
-  },
-  methods: {
-    onClose() {
-      this.$emit('dismissed')
+  props: {
+    message: {
+      type: String,
+      required: true
+    },
+    severity: {
+      type: String,
+      required: false
     }
   }
 }

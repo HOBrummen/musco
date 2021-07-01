@@ -26,21 +26,21 @@ describe('store/user/auth', () => {
         authMock = null
     })
     describe('actions', () => {
-            xit('sign up a user', async () => {
-                const commit = Sinon.spy()
+        xit('sign up a user', async () => {
+            const commit = Sinon.spy()
 
-                actions.signUserUp({ commit, state }, authMock)
-                expect(commit.args).toEqual([
-                    ['clearError'],
-                    ['setLoading', true]
-                ])
-            })
+            actions.signUserUp({ commit, state }, authMock)
+            expect(commit.args).toEqual([
+                ['clearAlert'],
+                ['setLoading', true]
+            ])
+        })
         xit('sign in a user', async () => {
             const commit = Sinon.spy()
 
             actions.signUserIn({ commit, state }, authMock)
             expect(commit.args).toEqual([
-                ['clearError'],
+                ['clearAlert'],
                 ['setLoading', true]
             ])
         })
@@ -49,7 +49,7 @@ describe('store/user/auth', () => {
 
             actions.autoSignIn({ commit, state }, authMock)
             expect(commit.args).toEqual([
-                ['clearError'],
+                ['clearAlert'],
                 ['setLoading', true],
                 ['setUser', {
                     email: 'j.joe@mail.com',
@@ -62,7 +62,7 @@ describe('store/user/auth', () => {
         })
         xit('send password recovery email', async () => {
             const commit = Sinon.spy()
-    
+
             actions.resetPasswordWithEmail({ commit, state }, authMock)
             expect(commit.args).toEqual([
                 ['setLoading', true]
@@ -70,10 +70,10 @@ describe('store/user/auth', () => {
         })
         xit('sign in a user', async () => {
             const commit = Sinon.spy()
-    
+
             actions.logout({ commit, state }, authMock)
             expect(commit.args).toEqual([
-                ['clearError'],
+                ['clearAlert'],
                 ['setLoading', true]
             ])
         })

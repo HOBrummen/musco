@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Alert.vue renders props when passed 1`] = `
-<div class="flex d-flex justify-center xs12 sm6 offset-sm3" style="position: absolute;" txt="A new alert">
-  <transition-stub name="fade-transition" id="auth/credential-already-in-use">
+<div class="flex d-flex justify-center xs12 sm6 offset-sm3" style="position: absolute;" txt="A new alert" code="auth/credential-already-in-use">
+  <transition-stub name="fade-transition">
     <div role="alert" class="v-alert v-sheet theme--dark elevation-5 error">
       <div class="v-alert__wrapper"><i aria-hidden="true" class="v-icon notranslate v-alert__icon mdi mdi-alert theme--dark"></i>
         <div class="v-alert__content">

@@ -30,7 +30,7 @@ export default {
                         commit('pushNotices', { ...doc.data(), id: doc.id })
                     })
                 }, (err) => {
-                    commit('setError', err)
+                    commit('setAlert', { message: err.message, severity: 'error' })
                 })
         },
         unsubscribeNotices () {
