@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} {% if site.description %} – {{ site.description }}{% endif %}</title>
+    {% seo title=true %}
+    {% include meta.html %}
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/assets/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="/feed.xml" />
+    <link rel="canonical" href="{{ page.url }}" />
+
+    <meta name="theme-color" content="#FAF9F9">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    {% include analytics_head.html %}
+  </head>
+
+  <body>
+    <div id="bar"></div>
+    <div class="wrapper-container">
+      <div class="wrapper-masthead">
+        <div class="cd-container">
+          <header class="masthead clearfix">
+            <a href="/" class="site-avatar"><img src="{{ site.avatar }}" alt="{{ site.title }}" width=".5rem" height=".5rem"/></a>
+
+            <div class="site-info">
+              <h1 class="site-name"><a href="/">{{ site.name }}</a></h1>
+              <p class="site-description">{{ site.description }}</p> 
+            </div>
+
+            <nav>
+              <a href="/">Home</a>
+              <a href="/search">Search</a>
+              <a href="/about">About</a>
+              <a href="/archive">Archive</a>
+              <a href="/srs">SRS</a>
+              <div class="switch">
+                <span class="btn-toggle"></span>
+              </div>
+            </nav>
+          </header>
+        </div>
+      </div>
+
+      <div class="wrapper-main">
+        <div id="main" role="main" class="cd-container">
+          {{ content }}
+        </div>
+      </div>
+
+      <div class="wrapper-footer">
+        <div class="container">
+          <footer class="footer">
+            {% include svg-icons.html %}
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    {% include analytics.html %}
+  </body>
+  <script type="text/javascript" src="{{ site.baseurl }}/assets/style.js"></script>
+
+</html>

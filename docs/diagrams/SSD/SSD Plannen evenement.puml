@@ -1,0 +1,10 @@
+@startuml Plan event
+skinparam style strictuml
+skinparam backgroundColor #FAF9F9
+skinparam DefaultFontName Roboto
+
+actor ": Moderator / : Administator" as moderator
+participant System as system
+
+moderator-> system: planEvent(event, description, date, startTime, endTime, invitees)
+@enduml

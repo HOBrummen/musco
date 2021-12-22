@@ -1,0 +1,10 @@
+@startuml Sign up event
+skinparam style strictuml
+skinparam backgroundColor #FAF9F9
+skinparam DefaultFontName Roboto
+
+actor ": Musician" as musician
+participant System as system
+
+musician -> system: signUpEvent(event, user, remark)
+@enduml

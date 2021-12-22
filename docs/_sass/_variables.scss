@@ -1,0 +1,41 @@
+//
+// VARIABLES
+//
+
+// Colors
+$blue: #4183C4;
+
+// Grays
+$black: #000;
+$darkerGray: #222;
+$darkGray: #333;
+$gray: #666;
+$lightGray: #eee;
+$white: #fff;
+
+// Mobile breakpoints
+@mixin mobile {
+  @media screen and (max-width: 640px) {
+    @content;
+  }
+}
+
+// Tags
+$tags: (
+  code: #4CAF50,
+  git: #E84D31,
+  javascript: #EFD81D,
+  SRS: #E68A00,
+  Documentation: #0C3fE7
+);
+
+@mixin generateBgColour($tagName, $tagColour) {
+  .#{$tagName} {
+      background-color: $tagColour;
+      color: complement($color: $tagColour)
+  }
+}
+
+@each $tagName, $tagColour in $tags {
+  @include generateBgColour($tagName, $tagColour);
+};

@@ -1,0 +1,10 @@
+@startuml Report absence
+skinparam DefaultFontName Roboto
+skinparam backgroundColor #FAF9F9
+skinparam style strictuml
+
+actor ": Musician" as musician
+participant System as system
+
+musician -> system: reportAbsence(user, orchestra, reasoning, start, end)
+@enduml

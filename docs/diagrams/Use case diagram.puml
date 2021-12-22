@@ -1,0 +1,23 @@
+@startuml Use case diagram
+skinparam backgroundColor #FAF9F9
+skinparam DefaultFontName Roboto
+
+left to right direction
+:Muzikant:
+:Moderator:
+:Beheerder:
+
+(Indienen afmelding) AS reportAbsence
+(Aanmelden evenement) AS signUpEvent
+(Plannen evenement) AS planEvent
+(Afhandelen mededeling) AS sendNotice
+(Uitvoeren startup) AS startUp
+(Toewijzen moderator) AS assignMod
+
+Muzikant -- reportAbsence
+Muzikant -- signUpEvent
+Moderator -- planEvent
+Moderator -- sendNotice
+Beheerder -- startUp
+Beheerder -- assignMod
+@enduml

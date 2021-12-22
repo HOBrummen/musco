@@ -1,0 +1,61 @@
+@startuml Domeinmodel
+skinparam style strictuml
+
+left to right direction
+hide empty members
+
+class User {
+name
+email
+}
+
+class Absence {
+reasoning
+from
+until
+}
+class Instrument {
+name
+section
+}
+class Announcement {
+title
+description
+}
+
+class Attachment {
+title
+location
+type
+}
+class Role {}
+class Musician {}
+class Admin {}
+class Moderator {}
+
+class Event {
+name
+description
+datetime
+}
+class Orchestra {
+name
+}
+
+class "Role enrollment" {
+from
+until
+}
+
+Role <|-- Musician
+Role <|-- Moderator
+Role <|-- Admin
+
+Role "1..*" -- "1..*" User
+(Role, User) .. "Role enrollment"
+
+User "1" *-- "0..*" Absence: Reports >
+User "0..*" -- "0..*" Instrument: Plays >
+
+
+@enduml

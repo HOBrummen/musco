@@ -1,0 +1,13 @@
+---
+---
+[
+  {% for document in site.collections %}
+    {
+      "title"    : "{% if document.title != "" %}{{ document.title | escape }}{% else %}{{ document.excerpt | strip_html | escape | strip }}{%endif%}",
+      "url"      : "{{ site.baseurl }}{{ document.url }}",
+      "category" : "{{ document.categories | join: ', '}}",
+      "date"     : "{{ document.date | date: "%B %e, %Y" }}",
+      "sources"  : "{{ document.sources }}
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
