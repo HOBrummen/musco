@@ -1,0 +1,10 @@
+@startuml Dispatch notice
+skinparam DefaultFontName Roboto
+skinparam backgroundColor #FAF9F9
+skinparam style strictuml
+
+actor ": Administrator / : Moderator" as actor
+participant System as system
+
+actor -> system: dispatchNotice(title, content, attachments, recipients)
+@enduml

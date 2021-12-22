@@ -1,32 +1,35 @@
-@startuml Domeinmodel
+@startuml Domain model
 skinparam style strictuml
+skinparam DefaultFontName Roboto
+skinparam backgroundColor #FAF9F9
 
-left to right direction
 hide empty members
 
 class User {
-name
-email
+	name
+	email
 }
 
 class Absence {
-reasoning
-from
-until
+	ochestra
+	reasoning
+	start
+	end
 }
 class Instrument {
-name
-section
+	name
+	section
 }
-class Announcement {
-title
-description
+class Notice {
+	title
+	description
+
 }
 
 class Attachment {
-title
-location
-type
+	title
+	location
+	type
 }
 class Role {}
 class Musician {}
@@ -34,17 +37,24 @@ class Admin {}
 class Moderator {}
 
 class Event {
-name
-description
-datetime
+	name
+	description
+	date
+	startTime
+	endTime
 }
+
 class Orchestra {
-name
+	name
 }
 
 class "Role enrollment" {
-from
-until
+	from
+	until
+}
+
+class Attendance {
+	remark
 }
 
 Role <|-- Musician
@@ -54,8 +64,12 @@ Role <|-- Admin
 Role "1..*" -- "1..*" User
 (Role, User) .. "Role enrollment"
 
-User "1" *-- "0..*" Absence: Reports >
+User "1" *-- "-user 0..*" Absence: Reports >
 User "0..*" -- "0..*" Instrument: Plays >
+User "-attendees 0..*" -- "0..*" Event: attends to >
+User "-invitees 1..*" -- "0..*" Event: invited for <
+(User, Event) .. Attendance
 
-
+Notice "0..*" --* "-attachments 1" Attachment: contains >
+Notice "0..*" -- "-recipients 0..*" User: recieves >
 @enduml

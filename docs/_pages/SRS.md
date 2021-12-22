@@ -55,9 +55,9 @@ In het domeinmodel worden alle concepten in een schematische tekening weergegeve
 ## Concepten
 | Concept | Beschrijving |
 | ------- | ------------ |
-| Musician    | Muzikant         |
+|         |              |
 
-`//TODO Importeer het domein model`
+![PlantUML Domain model](http://www.plantuml.com/plantuml/svg/RLFDRjim33vRJq5uboveWlJOe1WQh0kmmxeXs1w0aPb6Y2GQ4XqWsFRkasJNzhfT0edV3_d9p6CK3D8v2q_iq7Xmt91LyMnyYm4THBbQIh_1w4IR8qzqnCxAZhqyeoFOyu65PuG3wlDBuCut7zboW7UxxUv-Tw_KoJG4v5gvWYDte12LqXPZX1-H0lnKbK-6gYA7nghVh-3s4CbhoZZh4qK9gAf06DaR_wAg4YMfV9CqlUIpJwpEaPV9DP8MmtxaFBEOtbMCs4HeAEfWsaAQTHT1VIfM4zMoniAhvDhIQBbdcmnVRr-wQBH1FrMsZJD-Hk260Wgdw6ExJvVvqFEPqWM5XhZVZQCIkHn6zTSmFD3eC49r6OvyO6jpcZfJZe6TgZelnlwLE1dZyEI178PpHel1mw_bSamsbQOiirg9E-ZgkzLgKKEgzgVooTLDncxB-JsiLlyEgLJ6agQ6HTOkktnT5uTXBpQmfvQ3HFWmaDTZgtAQRSC6lbcyJimbbgn44TwAoeVOG4-883o9ZByOoPgx_sjwl84Z1tXGDrbrssCbvFI-IlLBE8syo3ED6vSwrBC5t81cBsXy3l1McOI1j6bDqQt7Dzv0BjE5ikWnDSx_vZy0)
 # Use case omschrijvingen
 In dit hoofdstuk worden alle use cases verder uitgewerkt om zo een duidelijk beeld te schetsen van de manier waarop de gebruiker het systeem gebruikt.
 
@@ -159,33 +159,29 @@ Moderators kunnen evenementen plannen voor verschillende muzikanten, commissies,
 Moderators kunnen mededelingen maken om te versturen naar verschillende muzikanten, commissies, secties, instrumentgroepen en/of orkesten. Deze mededelingen bestaan uit een titel, een inhoud en mogelijke bijlagen. Als de mededeling wordt verzonden krijgen de geadresseerden een melding op de telefoon van een lid. De geadresseerde kunnen via de melding de mededeling openen en bijlagen downloaden.
 ### Volledige Use case omschrijving
 
-| Use case sectie                                                                                               | Opmerking |
-| ------------------------------------------------------------------------------------------------------------- | --------- |
-| **Use case naam**<br />*Naam van Use case.*                                                                   |     Afhandelen mededeling      |
-| **Domein**<br/>*Het systeem in ontwerp.*                                                                      |   Systeem        |
-| **Niveau**<br />*"Gebruikersdoel" of "Sub functie"*                                                           |      Gebruikersdoel     |
-| **Primaire acteur**<br />*Wie roept het systeem aan om deze dienst te vervullen?*                             |      **Beheerder** of **Moderator**     |
-| **Belanghebbende en belangen**<br />*Wie geeft er om deze Use case en wat willen ze?*                         |           |
-| **Randvoorwaarden**<br />*In welke staat moet het systeem zijn, voordat deze Use case kan worden uitgevoerd?* |           |
-| **Succesgarantie**<br />*In welke staat moet het systeem zijn, nadat deze Use case is uitgevoerd?*            |           |
-| **Successcenario**<br />*Een typisch, onvoorwaardelijke happy path-scenario.*                                 |           |
-| **Extensies**<br />*Alternatieve scenario's van succes of mislukking.*                                        |           |
-| **Speciale vereisten**<br />*Gerelateerde non-functionele vereisten.*                                         |           |
-| **Technologie- en gegevensvariaties**<br />*Verschillende I/O-methoden en dataformaten.*                      |           |
-| **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               |           |
-| **Diversen**<br />*Zoals openstaande kwesties.*                                                               |           |
+| Use case sectie                                                                                               | Opmerking                                                                                                                                                                                                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Use case naam**<br />*Naam van Use case.*                                                                   | Afhandelen mededeling                                                                                                                                                                                                                                                                                               |
+| **Domein**<br/>*Het systeem in ontwerp.*                                                                      | Systeem                                                                                                                                                                                                                                                                                                             |
+| **Niveau**<br />*"Gebruikersdoel" of "Sub functie"*                                                           | Gebruikersdoel                                                                                                                                                                                                                                                                                                      |
+| **Primaire acteur**<br />*Wie roept het systeem aan om deze dienst te vervullen?*                             | **Beheerder** of **Moderator**                                                                                                                                                                                                                                                                                      |
+| **Belanghebbende en belangen**<br />*Wie geeft er om deze Use case en wat willen ze?*                         | - **Beheerder** & **moderator**: Willen leden graag up-to-date houden over de vereniging.<br/> - **Muzikant**: Wil up-to-date blijven over de vereniging.                                                                                                                                                           |
+| **Randvoorwaarden**<br />*In welke staat moet het systeem zijn, voordat deze Use case kan worden uitgevoerd?* | - Er zijn **muzikanten** beschikbaar in het systeem om de mededeling naar te versturen.                                                                                                                                                                                                                             |
+| **Succesgarantie**<br />*In welke staat moet het systeem zijn, nadat deze Use case is uitgevoerd?*            | - **Muzikanten** hebben een notificatie ontvangen over de nieuwe mededeling.<br/> - Mededeling is opgeslagen in het systeem.                                                                                                                                                                                        |
+| **Successcenario**<br />*Een typisch, onvoorwaardelijke happy path-scenario.*                                 | 1. **Beheerder** of **Moderator** geeft aan een mededeling te willen versturen.<br/> 2. Systeem toont mededelingenformulier.<br/>3. **Beheerder** of **Moderator** vult het formulier in.<br/> 5. **Beheerder** of **Moderator** geeft aan de mededeling te willen versturen.<br/> 6. Systeem verstuurt mededeling. |
+| **Extensies**<br />*Alternatieve scenario's van succes of mislukking.*                                        | *a. Ten alle tijden: **Beheerder** of **Moderator** sluit onverwachts het mededelingenformulier:*<br/> 1. Systeem slaat concept mededeling op.                                                                                                                                                                      |
+| **Speciale vereisten**<br />*Gerelateerde non-functionele vereisten.*                                         | - Een mededeling moet binnen 5 minuten kunnen worden opgesteld.<br/> - Een mededeling wordt verstuurd naar de API binnen 10 seconden.                                                                                                                                                                               |
+| **Technologie- en gegevensvariaties**<br />*Verschillende I/O-methoden en dataformaten.*                      |                                                                                                                                                                                                                                                                                                                     |
+| **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               | minimaal: 1 keer per week.<br/> verwachting: 1-5 keer per week.                                                                                                                                                                                                                                                     |
+| **Diversen**<br />*Zoals openstaande kwesties.*                                                               | *Mogelijkheid om notificaties te sturen naar IOS/OSX systemen.*                                                                                                                                                                                                                                                     |
 
 ### Systeem Sequence Diagram
+![PlantUML SSD dispatch notice](http://www.plantuml.com/plantuml/svg/JOwnJWCn44Jx-ufLQ40wH9qhK2BGTQI0BzZO2rd5zfwySqN-7fy5KXfhFFFqj0S7Lwmv3NxLid3bJE_opMl2R0KdpaAVTZRO7N3cSFsfjfRuPiagFSp7UJ_lxmZ7BKbxguOk7pYWWRk9ZZ5hqRRmLhpGH1yMfVzsn4uT79e56dJX0lgwEIHlc_VqBtj-_IicYkeB8rnE1Wto24MIaO8LIC58372uv9Pzf2hDgrj-6WvIOZll5m00)
 
-### Operatie contracten
-
-| Operatie contract sectie                                                                                      | Opmerking |
-| ------------------------------------------------------------------------------------------------------------- | --------- |
-| **Operatie**<br />*Naam van operatie met parameters.*                                                         |           |
-| **Verwijzingen**<br />*Use cases waar deze operatie in kan voorkomen*                                         |           |
-| **Randvoorwaarden**<br />*In welke staat moet het systeem zijn, voordat deze operatie kan worden uitgevoerd?* |           |
-| **Succesgarantie**<br />*In welke staat moet het systeem zijn, nadat deze operatie is uitgevoerd?*            |           |
-
+- `title`: De titel van de mededeling.
+- `content`: De inhoud van de mededeling.
+- `attachments`: Een lijst met optionele bijlagen.
+- `recipients`: Een lijst met ontvangers. Dit kunnen muzikanten, commissies, secties, instrumentgroepen en/of orkesten zijn.
 
 ## Uitvoeren startup
 Als het systeem voor het eerst wordt gebruikt moet er een startup worden uitgevoerd. Dit zorgt ervoor dat de vereniging zelf kan bepalen welke gegevens er in het systeem komen.
@@ -197,21 +193,21 @@ Daarna wordt er gevraagd om secties toe te voegen. Secties bestaan wederom allee
 Daarna wordt er gevraagd om instrumenten toe te voegen. Bij het toevoegen van instrumenten wordt er gevraagd naar de naam, de sectie en in welk orkest het instrument voorkomt. Bij het kiezen van orkesten is het mogelijk om uit een selectieveld te kiezen met daarin de eerder aangemaakte orkesten.
 ### Volledige Use case omschrijving
 
-| Use case sectie                                                                                               | Opmerking |
-| ------------------------------------------------------------------------------------------------------------- | --------- |
-| **Use case naam**<br />*Naam van Use case.*                                                                   |           |
-| **Domein**<br/>*Het systeem in ontwerp.*                                                                      |           |
-| **Niveau**<br />*"Gebruikersdoel" of "Sub functie"*                                                           |           |
-| **Primaire acteur**<br />*Wie roept het systeem aan om deze dienst te vervullen?*                             |           |
-| **Belanghebbende en belangen**<br />*Wie geeft er om deze Use case en wat willen ze?*                         |           |
-| **Randvoorwaarden**<br />*In welke staat moet het systeem zijn, voordat deze Use case kan worden uitgevoerd?* |           |
-| **Succesgarantie**<br />*In welke staat moet het systeem zijn, nadat deze Use case is uitgevoerd?*            |           |
-| **Successcenario**<br />*Een typisch, onvoorwaardelijke happy path-scenario.*                                 |           |
-| **Extensies**<br />*Alternatieve scenario's van succes of mislukking.*                                        |           |
-| **Speciale vereisten**<br />*Gerelateerde non-functionele vereisten.*                                         |           |
-| **Technologie- en gegevensvariaties**<br />*Verschillende I/O-methoden en dataformaten.*                      |           |
-| **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               |           |
-| **Diversen**<br />*Zoals openstaande kwesties.*                                                               |           |
+| Use case sectie                                                                                               | Opmerking                                                                                         |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| **Use case naam**<br />*Naam van Use case.*                                                                   | Uitvoeren startup                                                                                 |
+| **Domein**<br/>*Het systeem in ontwerp.*                                                                      | Systeem                                                                                           |
+| **Niveau**<br />*"Gebruikersdoel" of "Sub functie"*                                                           | Gebruikersdoel                                                                                    |
+| **Primaire acteur**<br />*Wie roept het systeem aan om deze dienst te vervullen?*                             | **Beheerder**                                                                                     |
+| **Belanghebbende en belangen**<br />*Wie geeft er om deze Use case en wat willen ze?*                         | - **Beheerders** & **Moderators** & **Muzikanten**: Willen een volledig systeem kunnen gebruiken. |
+| **Randvoorwaarden**<br />*In welke staat moet het systeem zijn, voordat deze Use case kan worden uitgevoerd?* |                                                                                                   |
+| **Succesgarantie**<br />*In welke staat moet het systeem zijn, nadat deze Use case is uitgevoerd?*            |                                                                                                   |
+| **Successcenario**<br />*Een typisch, onvoorwaardelijke happy path-scenario.*                                 |                                                                                                   |
+| **Extensies**<br />*Alternatieve scenario's van succes of mislukking.*                                        |                                                                                                   |
+| **Speciale vereisten**<br />*Gerelateerde non-functionele vereisten.*                                         |                                                                                                   |
+| **Technologie- en gegevensvariaties**<br />*Verschillende I/O-methoden en dataformaten.*                      |                                                                                                   |
+| **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               |                                                                                                   |
+| **Diversen**<br />*Zoals openstaande kwesties.*                                                               |                                                                                                   |
 
 ### Systeem Sequence Diagram
 
@@ -263,10 +259,10 @@ In dit hoofdstuk worden andere functionele eisen gesteld aan de applicatie. Aan 
 | Code | Omschrijving                                                                                                                               |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | FR1  | Beheerders en moderators moeten alle afmeldingen van alle muzikanten kunnen bekijken en in deze lijst kunnen zoeken, filteren en sorteren. |
-| FR2  | Alle muzikanten kunnen eigen gegevens aanpassen.                                                                                           |
+| FR2  | Alle muzikanten kunnen persoonsgegevens aanpassen.                                                                                         |
 | FR3  | Een beheerder kan de systeemgegevens aanpassen.                                                                                            |
-| FR4  | Alle muzikanten kunnen ten alle tijde mededelingen bekijken.                                                                               |
-| FR5  | Alle muzikanten kunnen ten alle tijde alle evenementen bekijken.                                                                           |
+| FR4  | Alle muzikanten kunnen ten alle tijden alle mededelingen bekijken.                                                                         |
+| FR5  | Alle muzikanten kunnen ten alle tijden alle evenementen bekijken.                                                                          |
 
 # Non-functionele eisen
 

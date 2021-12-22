@@ -10,14 +10,14 @@ left to right direction
 (Indienen afmelding) AS reportAbsence
 (Aanmelden evenement) AS signUpEvent
 (Plannen evenement) AS planEvent
-(Afhandelen mededeling) AS sendNotice
+(Afhandelen mededeling) AS dispatchNotice
 (Uitvoeren startup) AS startUp
 (Toewijzen moderator) AS assignMod
 
 Muzikant -- reportAbsence
 Muzikant -- signUpEvent
 Moderator -- planEvent
-Moderator -- sendNotice
+Moderator -- dispatchNotice
 Beheerder -- startUp
 Beheerder -- assignMod
 @enduml
