@@ -1,7 +1,7 @@
 {
   "npmScope": "musco",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "implicitDependencies": {
     "package.json": {
@@ -12,9 +12,10 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": ["build", "test", "e2e"],
+        "accessToken": "NDdlYzQ1MzgtMTc1Yi00NDhiLTk4YWQtYTNkYmJkMjM0N2JkfHJlYWQtd3JpdGU="
       }
     }
   },
@@ -29,6 +30,13 @@
   "projects": {
     "api": {
       "tags": []
+    },
+    "app": {
+      "tags": []
+    },
+    "app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["app"]
     }
   }
 }
