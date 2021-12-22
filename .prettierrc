@@ -1,3 +1,24 @@
 {
-  "singleQuote": true
+	"arrowParens": "avoid",
+	"bracketSameLine": false,
+	"bracketSpacing": true,
+	"cursorOffset": -1,
+	"embeddedLanguageFormatting": "auto",
+	"endOfLine": "lf",
+	"htmlWhitespaceSensitivity": "strict",
+	"insertPragma": false,
+	"jsxSingleQuote": false,
+	"overrides": [
+		{ "files": "**/*.spec.ts|js", "options": { "printWidth": 120 } }
+	],
+	"printWidth": 80,
+	"proseWrap": "preserve",
+	"quoteProps": "as-needed",
+	"requirePragma": false,
+	"semi": false,
+	"singleQuote": true,
+	"tabWidth": 2,
+	"trailingComma": "none",
+	"useTabs": true,
+	"vueIndentScriptAndStyle": true
 }
