@@ -3,47 +3,51 @@ layout: default
 ---
 
 <article class="post detailed">
-  <h1>{{ page.title }}</h1>
+	<h1>{{ page.title }}</h1>
 
-  <div>
-    <p class="author_title">
-      {{site.author}} · {{ page.date | date: "%B %e, %Y" }}
-    </p>
-    {% if page.last_modified_at %}
-    <p
-      class="author_title"
-      datetime="{{ page.last_modified_at | date_to_xmlschema }}"
-    >
-      (Updated: {{ page.last_modified_at | date: "%b %-d, %Y" }})
-    </p>
-    {% endif %}
-    <div class="post-tags">
-      {% if post %} {% assign categories = post.categories %} {% else %} {%
-      assign categories = page.categories %} {% endif %} {% for category in
-      categories %}
-      <a
-        class="{{ category | downcase }}"
-        href="/categories/#{{category|slugize}}"
-        rel="noopener noreferrer"
-        >{{category}}</a
-      >
-      {% unless forloop.last %}&nbsp;{% endunless %} {% endfor %}
-    </div>
-  </div>
+	<div>
+		<p class="author_title">
+			{{site.author}} · {{ page.date | date: "%B %e, %Y" }}
+		</p>
+		{% if page.last_modified_at %}
+		<p
+			class="author_title"
+			datetime="{{ page.last_modified_at | date_to_xmlschema }}"
+		>
+			(Updated: {{ page.last_modified_at | date: "%b %-d, %Y" }})
+		</p>
+		{% endif %}
+		<div class="post-tags">
+			{% if post %} {% assign categories = post.categories %} {% else %} {%
+			assign categories = page.categories %} {% endif %} {% for category in
+			categories %}
+			<a
+				class="{{ category | downcase }}"
+				href="/categories/#{{category|slugize}}"
+				rel="noopener noreferrer"
+				>{{category}}</a
+			>
+			{% unless forloop.last %}&nbsp;{% endunless %} {% endfor %}
+		</div>
+	</div>
 
-  <div class="entry">{{ content }}</div>
+	<div class="entry">{{ content }}</div>
 
-  {%if page.sources %}
-  <hr />
-  <div class="source">
-    Sources:
-    <ul>
-      {% for source in page.sources %}
-      <li><a target="_blank" href="{{source.link}}">{{source.text}}</a></li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
+	{%if page.sources %}
+	<hr />
+	<div class="source">
+		Sources:
+		<ul>
+			{% for source in page.sources %}
+			<li>
+				<a target="_blank" href="{{source.link}}" rel="noopener noreferrer">
+					{{source.text}}
+				</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endif %}
 
-  <div class="date">Written on {{ page.date | date: "%B %e, %Y" }}</div>
+	<div class="date">Written on {{ page.date | date: "%B %e, %Y" }}</div>
 </article>
