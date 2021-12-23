@@ -3,7 +3,7 @@ skinparam style strictuml
 skinparam backgroundColor #FAF9F9
 skinparam DefaultFontName Roboto
 
-actor ": Moderator / : Administator" as actor
+actor ": Administator / : Moderator" as actor
 participant System as system
 
 actor -> system: planEvent(event, description, date, startTime, endTime, invitees)

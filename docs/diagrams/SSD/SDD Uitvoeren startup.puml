@@ -1,0 +1,10 @@
+@startuml execute startup
+skinparam style strictuml
+skinparam backgroundColor #FAF9F9
+skinparam DefaultFontName Roboto
+
+actor ": Administator" as admin
+participant System as system
+
+admin-> system: executeStartup(club, users, instruments, sections, orchestras)
+@enduml

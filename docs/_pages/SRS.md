@@ -37,17 +37,23 @@ Het systeem moet goedkoop in de cloud worden geïmplementeerd. Dit komt omdat de
 *Vanaf dit punt worden diagrammen altijd in het Engels weergegeven. Dit wordt gedaan om consistentie redenen met de code.*
 
 ### Indienen afmelding
-Alle muzikanten die in een orkest zitten en een instrument bespelen kunnen zich afmelden voor geplande repetities.
+Alle muzikanten die in een orkest zitten en een instrument bespelen kunnen zich afmelden voor geplande repetities.<br/>
+[Use case omschrijving](#report-absence)
 ### Aanmelden evenement
-Een muzikant kan zichzelf aanmelden voor evenementen als de muzikant hiervoor is uitgenodigd.
+Een muzikant kan zichzelf aanmelden voor evenementen als de muzikant hiervoor is uitgenodigd.<br/>
+[Use case omschrijving](#sign-up-event)
 ### Plannen evenement
-Moderators kunnen evenementen plannen voor verschillende muzikanten, commissies, secties, instrumentgroepen en/of orkesten.
+Moderators kunnen evenementen plannen voor verschillende muzikanten, commissies, secties, instrumentgroepen en/of orkesten.<br/>
+[Use case omschrijving](#plan-event)
 ### Afhandelen mededeling
-Moderators kunnen mededelingen maken om te versturen naar verschillende muzikanten, commissies, secties, instrumentgroepen en/of orkesten.
+Moderators kunnen mededelingen maken om te versturen naar verschillende muzikanten, commissies, secties, instrumentgroepen en/of orkesten.<br/>
+[Use case omschrijving](#dispatch-notice)
 ### Uitvoeren startup
-Als het systeem voor het eerst wordt gebruikt moet er een startup worden uitgevoerd. Dit zorgt ervoor dat de vereniging zelf kan bepalen welke gegevens er in het systeem komen.
+Als het systeem voor het eerst wordt gebruikt moet er een startup worden uitgevoerd. Dit zorgt ervoor dat de vereniging zelf kan bepalen welke gegevens er in het systeem komen.<br/>
+[Use case omschrijving](#execute-startup)
 ### Toewijzen moderator
-Een beheerder kan moderators toewijzen.
+Een beheerder kan moderators toewijzen.<br/>
+[Use case omschrijving](#assign-mod)
 
 # Domeinmodel
 In het domeinmodel worden alle concepten in een schematische tekening weergegeven.
@@ -58,6 +64,8 @@ In het domeinmodel worden alle concepten in een schematische tekening weergegeve
 |         |              |
 
 ![PlantUML Domain model](http://www.plantuml.com/plantuml/svg/RLFDRjim33vRJq5uboveWlJOe1WQh0kmmxeXs1w0aPb6Y2GQ4XqWsFRkasJNzhfT0edV3_d9p6CK3D8v2q_iq7Xmt91LyMnyYm4THBbQIh_1w4IR8qzqnCxAZhqyeoFOyu65PuG3wlDBuCut7zboW7UxxUv-Tw_KoJG4v5gvWYDte12LqXPZX1-H0lnKbK-6gYA7nghVh-3s4CbhoZZh4qK9gAf06DaR_wAg4YMfV9CqlUIpJwpEaPV9DP8MmtxaFBEOtbMCs4HeAEfWsaAQTHT1VIfM4zMoniAhvDhIQBbdcmnVRr-wQBH1FrMsZJD-Hk260Wgdw6ExJvVvqFEPqWM5XhZVZQCIkHn6zTSmFD3eC49r6OvyO6jpcZfJZe6TgZelnlwLE1dZyEI178PpHel1mw_bSamsbQOiirg9E-ZgkzLgKKEgzgVooTLDncxB-JsiLlyEgLJ6agQ6HTOkktnT5uTXBpQmfvQ3HFWmaDTZgtAQRSC6lbcyJimbbgn44TwAoeVOG4-883o9ZByOoPgx_sjwl84Z1tXGDrbrssCbvFI-IlLBE8syo3ED6vSwrBC5t81cBsXy3l1McOI1j6bDqQt7Dzv0BjE5ikWnDSx_vZy0)
+
+Er is gekozen voor dit ontwerp omdat: ...
 # Use case omschrijvingen
 In dit hoofdstuk worden alle use cases verder uitgewerkt om zo een duidelijk beeld te schetsen van de manier waarop de gebruiker het systeem gebruikt.
 
@@ -68,10 +76,15 @@ Na de volledige Use case omschrijving wordt er een Systeem Sequence Diagram (SSD
 In het operatie contract wordt verder ingegaan op de randvoorwaarden en succesgarantie van de Use case als dit nodig is. Dit tabel wordt soms weggelaten doordat er geen speciale eisen zijn aan de Use case.
 
 Onderstaande randvoorwaarden gelden voor alle Use cases:
-- Acteur is geauthenticeerd & geautoriseerd
+- Acteur is geauthenticeerd & geautoriseerd;
 
-## Indienen afmelding
+De volgende randvoorwaarden gelden voor alle Use cases <u>behalve</u> [Uitvoeren startup](#execute-startup):
+- De startup van het systeem is uitgevoerd;
+- Er zijn gegevens uit de startup aanwezig in het systeem.
+
+<h2 id=report-absence>Indienen afmelding</h2>
 Alle muzikanten die in een orkest zitten en een instrument bespelen kunnen zich afmelden voor geplande repetities. Dit doet een lid door de datum van afwezigheid aan te geven. Ook wordt er aangegeven of het lid meerdere repetities afwezig is en hoeveel dit er dan zijn. Verder kan er een reden opgegeven worden voor de afmelding.
+
 ### Volledige Use case omschrijving
 
 | Use case sectie                                                                                               | Opmerking                                                                                                                                                                                                                                                                                                                                                                                             |
@@ -86,7 +99,7 @@ Alle muzikanten die in een orkest zitten en een instrument bespelen kunnen zich 
 | **Successcenario**<br />*Een typisch, onvoorwaardelijke happy path-scenario.*                                 | 1. **Muzikant** geeft aan zich af te willen melden voor een repetitie.<br />2. Systeem toont afmeldformulier.<br />3. **Muzikant** vult afmeldformulier in.<br />4. Systeem valideert de ingevulde gegevens.<br />5. **Muzikant** geeft aan afmeldformulier te willen verzenden.<br />6. Systeem slaat afmeldformulier op.                                                                            |
 | **Extensies**<br />*Alternatieve scenario's van succes of mislukking.*                                        | *a. Ten alle tijde: **Muzikant** navigeert, op welke manier dan ook, weg van het afmeldformulier:*<br />a1. Systeem slaat concept afmelding op.<br />*b. Ten alle tijde: **Muzikant** geeft aan de afmelding te willen annuleren:*<br/>b1.  Systeem verwijderd alle ingevulde gegevens.<br/>*4a. Systeem vindt een fout in de ingevulde gegevens:*<br />    4a1. Systeem toont fout aan **muzikant**. |
 | **Speciale vereisten**<br />*Gerelateerde non-functionele vereisten.*                                         | - Het afmeldformulier moet altijd binnen 3 minuten ingevuld kunnen worden.<br />- Het afmeldformulier moet binnen 10 seconden verzonden kunnen worden wanneer er een internetverbinding aanwezig is.<br/>- De concept afmelding wordt weergegeven wanneer een **muzikant** een afmelding wil gaan doen.                                                                                               |
-| **Technologie- en gegevensvariaties**<br />*Verschillende I/O-methoden en dataformaten.*                      | - De gegevens in concept afmeldformulieren worden up-to-date gehouden met de gebruikersgegevens.<br/> -                                                                                                                                                                                                                                                                                               |
+| **Technologie- en gegevensvariaties**<br />*Verschillende I/O-methoden en dataformaten.*                      | - De gegevens in concept afmeldformulieren worden up-to-date gehouden met de gebruikersgegevens.                                                                                                                                                                                                                                                                                                      |
 | **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               | Verwachtingen: 1-20 keer per week                                                                                                                                                                                                                                                                                                                                                                     |
 | **Diversen**<br />*Zoals openstaande kwesties.*                                                               | *Mogelijkheden onderzoeken met betrekking tot een wachtrij inzetten om het afmeldingsformulier te verzenden wanneer er weer verbinding is met het internet, als dit niet het geval was tijdens het invoeren van het afmeldformulier.*                                                                                                                                                                 |
 
@@ -100,7 +113,8 @@ Alle muzikanten die in een orkest zitten en een instrument bespelen kunnen zich 
 - `start`: De datum vanaf wanneer de **muzikant** afwezig is;
 - `end`: De datum waarop de **muzikant** weer aanwezig is, dit veld is optioneel.
 
-## Aanmelden evenement
+<h2 id=sign-up-event>Aanmelden evenement</h2>
+
 Een muzikant kan zichzelf aanmelden voor evenementen als de muzikant hiervoor is uitgenodigd. Deze uitnodigingen zijn te zien in het mededelingenoverzicht. De gebruiker krijgt hier ook een notificatie over. Als een muzikant zich wil aanmelden voor een evenement hoeft de muzikant enkel aan te geven dat hij/zij erbij is. Als een evenement de mogelijjkheid geeft opmerkingen te plaatsen kan de muzikant dit doen voordat hij zich aanmeld.
 ### Volledige Use case omschrijving
 
@@ -125,7 +139,9 @@ Een muzikant kan zichzelf aanmelden voor evenementen als de muzikant hiervoor is
 - `event`: Het evenement waar de **muzikant** zich voor aanmeld;
 - `user`: De geauthenticeerde **muzikant**;
 - `remark`: Opmerkingen vanuit de **muzikant**, dit veld is optioneel afhankelijk van de mogelijkheid vanuit het evenement.
-## Plannen evenement
+
+<h2 id=plan-event>Plannen evenement</h2>
+
 Moderators kunnen evenementen plannen voor verschillende muzikanten, commissies, secties, instrumentgroepen en/of orkesten. Om een evenement te plannen moet een moderator een datum, start- en eindtijd, een titel en de genodigden invoeren. De moderator kiest uit een keuzemenu wie er voor een evenement zijn uitgenodigd. Voor de eindtijd kan er een vast tijdstip gekozen worden of een schatting. Verder kan een evenement meerdere dagen duren. Ook kan er aangegeven worden dat de genodigde een invulveld moet invullen. Dit wordt gedaan door een selectievak. Het invulveld is altijd verplicht.
 ### Volledige Use case omschrijving
 
@@ -143,19 +159,20 @@ Moderators kunnen evenementen plannen voor verschillende muzikanten, commissies,
 | **Speciale vereisten**<br />*Gerelateerde non-functionele vereisten.*                                         | - Het aanmaken van een evenement moet binnen 5 minuten gedaan kunnen worden.<br/>- Het versturen van de uitnodiging naar alle genodigden is binnen 1 minuut verstuurd zijn als er een internetverbinding is.                                                                                                               |
 | **Technologie- en gegevensvariaties**<br />*Verschillende I/O-methoden en dataformaten.*                      |                                                                                                                                                                                                                                                                                                                            |
 | **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               | Verwachting: 5-10 keer per maand                                                                                                                                                                                                                                                                                           |
-| **Diversen**<br />*Zoals openstaande kwesties.*                                                               |                                                                                                                                                                                                                                                                                                                            |
+| **Diversen**<br />*Zoals openstaande kwesties.*                                                               | *Mogelijkheden onderzoeken met betrekking tot een wachtrij inzetten om de aanmelding voor een evenement te verzenden wanneer er weer verbinding is met het internet, als dit niet het geval was tijdens het aanmelden.*                                                                                                    |
 
 ### Systeem Sequence Diagram
-![PlantUML SSD plan event](http://www.plantuml.com/plantuml/svg/NO-zJaCn38NtF8LL5f2Ac7i7r0gu6mp02xY9GLOJEufzA_NjISgFK9UZy_CjPskEpPUIWnrOAZOiO7xArBLnl5Zs60-VJHT93vgrmTMycpVpvX_nI1-uP9zL_0KBmQlkrJK4ZDxvrGJFcgZX27SmmIuL5ZOVnGhGeFpEeM9pZbnH7DvEvbJ6RcSNmXztU__JJL0pojEHnAzfw1eIMMnSdLLwGASrdE--S-cM97qRbYCxaTs4RU_wuoy0)
+![PlantUML SSD plan event](http://www.plantuml.com/plantuml/svg/JO_1IWD138RlynIXNXGgdhi7QL7tfeZw0kbCbD2PP9ba2trxPrOBUmd_dtm4lhqvLfzBXlUC0dGcyM0dbWah5Z2_P6gpSkpGwdB4UFgfEajwqgmLRiR3k1jtA-APld7EFghu6nQ23psgQmWOlV6R0GwfiB0vzlu00xngejhR1j1WuKBxvHnvGd7ul9XJwJTRqlNN_UF_Oe2fMRnqYTj5PGk9B5QUd5LQGQSjBCfVN5eaIN-1vSnEP7TXttPTzHS0)
 
-- `event`: De naam van het evenement welke wordt aangemaakt.
-- `description`: Een omschrijving van het evenement.
-- `date`: De datum waarop het evenement gehouden wordt.
-- `startTime`: De starttijd van het evenement.
-- `endTime`: De eindtijd van het evenement.
+- `event`: De naam van het evenement welke wordt aangemaakt;
+- `description`: Een omschrijving van het evenement;
+- `date`: De datum waarop het evenement gehouden wordt;
+- `startTime`: De starttijd van het evenement;
+- `endTime`: De eindtijd van het evenement;
 - `invitees`: Een lijst met alle genodigden voor het evenement.
 
-## Afhandelen mededeling
+<h2 id=dispatch-notice>Afhandelen mededeling</h2>
+
 Moderators kunnen mededelingen maken om te versturen naar verschillende muzikanten, commissies, secties, instrumentgroepen en/of orkesten. Deze mededelingen bestaan uit een titel, een inhoud en mogelijke bijlagen. Als de mededeling wordt verzonden krijgen de geadresseerden een melding op de telefoon van een lid. De geadresseerde kunnen via de melding de mededeling openen en bijlagen downloaden.
 ### Volledige Use case omschrijving
 
@@ -168,22 +185,23 @@ Moderators kunnen mededelingen maken om te versturen naar verschillende muzikant
 | **Belanghebbende en belangen**<br />*Wie geeft er om deze Use case en wat willen ze?*                         | - **Beheerder** & **moderator**: Willen leden graag up-to-date houden over de vereniging.<br/> - **Muzikant**: Wil up-to-date blijven over de vereniging.                                                                                                                                                           |
 | **Randvoorwaarden**<br />*In welke staat moet het systeem zijn, voordat deze Use case kan worden uitgevoerd?* | - Er zijn **muzikanten** beschikbaar in het systeem om de mededeling naar te versturen.                                                                                                                                                                                                                             |
 | **Succesgarantie**<br />*In welke staat moet het systeem zijn, nadat deze Use case is uitgevoerd?*            | - **Muzikanten** hebben een notificatie ontvangen over de nieuwe mededeling.<br/> - Mededeling is opgeslagen in het systeem.                                                                                                                                                                                        |
-| **Successcenario**<br />*Een typisch, onvoorwaardelijke happy path-scenario.*                                 | 1. **Beheerder** of **Moderator** geeft aan een mededeling te willen versturen.<br/> 2. Systeem toont mededelingenformulier.<br/>3. **Beheerder** of **Moderator** vult het formulier in.<br/> 5. **Beheerder** of **Moderator** geeft aan de mededeling te willen versturen.<br/> 6. Systeem verstuurt mededeling. |
-| **Extensies**<br />*Alternatieve scenario's van succes of mislukking.*                                        | *a. Ten alle tijden: **Beheerder** of **Moderator** sluit onverwachts het mededelingenformulier:*<br/> 1. Systeem slaat concept mededeling op.                                                                                                                                                                      |
+| **Successcenario**<br />*Een typisch, onvoorwaardelijke happy path-scenario.*                                 | 1. **Beheerder** of **moderator** geeft aan een mededeling te willen versturen.<br/> 2. Systeem toont mededelingenformulier.<br/>3. **Beheerder** of **moderator** vult het formulier in.<br/> 5. **Beheerder** of **moderator** geeft aan de mededeling te willen versturen.<br/> 6. Systeem verstuurt mededeling. |
+| **Extensies**<br />*Alternatieve scenario's van succes of mislukking.*                                        | *a. Ten alle tijden: **Beheerder** of **moderator** sluit onverwachts het mededelingenformulier:*<br/> 1. Systeem slaat concept mededeling op.                                                                                                                                                                      |
 | **Speciale vereisten**<br />*Gerelateerde non-functionele vereisten.*                                         | - Een mededeling moet binnen 5 minuten kunnen worden opgesteld.<br/> - Een mededeling wordt verstuurd naar de API binnen 10 seconden.                                                                                                                                                                               |
 | **Technologie- en gegevensvariaties**<br />*Verschillende I/O-methoden en dataformaten.*                      |                                                                                                                                                                                                                                                                                                                     |
 | **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               | minimaal: 1 keer per week.<br/> verwachting: 1-5 keer per week.                                                                                                                                                                                                                                                     |
-| **Diversen**<br />*Zoals openstaande kwesties.*                                                               | *Mogelijkheid om notificaties te sturen naar IOS/OSX systemen.*                                                                                                                                                                                                                                                     |
+| **Diversen**<br />*Zoals openstaande kwesties.*                                                               | *Mogelijkheid om notificaties te sturen naar IOS/OSX systemen via een Progressive WebApplication(PWA). Mogelijkheden zijn [hier](https://stackoverflow.com/questions/63819485/sending-push-notifications-to-ios-from-pwa/64576541#64576541) te vinden.*                                                             |
 
 ### Systeem Sequence Diagram
 ![PlantUML SSD dispatch notice](http://www.plantuml.com/plantuml/svg/JOwnJWCn44Jx-ufLQ40wH9qhK2BGTQI0BzZO2rd5zfwySqN-7fy5KXfhFFFqj0S7Lwmv3NxLid3bJE_opMl2R0KdpaAVTZRO7N3cSFsfjfRuPiagFSp7UJ_lxmZ7BKbxguOk7pYWWRk9ZZ5hqRRmLhpGH1yMfVzsn4uT79e56dJX0lgwEIHlc_VqBtj-_IicYkeB8rnE1Wto24MIaO8LIC58372uv9Pzf2hDgrj-6WvIOZll5m00)
 
-- `title`: De titel van de mededeling.
-- `content`: De inhoud van de mededeling.
-- `attachments`: Een lijst met optionele bijlagen.
+- `title`: De titel van de mededeling;
+- `content`: De inhoud van de mededeling;
+- `attachments`: Een lijst met optionele bijlagen;
 - `recipients`: Een lijst met ontvangers. Dit kunnen muzikanten, commissies, secties, instrumentgroepen en/of orkesten zijn.
 
-## Uitvoeren startup
+<h2 id=execute-startup>Uitvoeren startup</h2>
+
 Als het systeem voor het eerst wordt gebruikt moet er een startup worden uitgevoerd. Dit zorgt ervoor dat de vereniging zelf kan bepalen welke gegevens er in het systeem komen.
 
 In de startup wordt er eerst gevraagd om orkesten te definiëren. Dit wordt gedaan door een naam op te geven en het orkest toe te voegen aan de lijst.
@@ -191,37 +209,38 @@ In de startup wordt er eerst gevraagd om orkesten te definiëren. Dit wordt geda
 Daarna wordt er gevraagd om secties toe te voegen. Secties bestaan wederom alleen uit een naam. De secties kunnen toegevoegd worden aan verschillende orkesten.
 
 Daarna wordt er gevraagd om instrumenten toe te voegen. Bij het toevoegen van instrumenten wordt er gevraagd naar de naam, de sectie en in welk orkest het instrument voorkomt. Bij het kiezen van orkesten is het mogelijk om uit een selectieveld te kiezen met daarin de eerder aangemaakte orkesten.
+
+Na de instrumenten wordt er gevraagd naar de gebruikers van het systeem. Er kan een csv bestand met emailadressen worden geïmporteerd. Deze emailadressen kunnen daarna verbonden worden met instrumenten en orkesten.
 ### Volledige Use case omschrijving
 
-| Use case sectie                                                                                               | Opmerking                                                                                         |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| **Use case naam**<br />*Naam van Use case.*                                                                   | Uitvoeren startup                                                                                 |
-| **Domein**<br/>*Het systeem in ontwerp.*                                                                      | Systeem                                                                                           |
-| **Niveau**<br />*"Gebruikersdoel" of "Sub functie"*                                                           | Gebruikersdoel                                                                                    |
-| **Primaire acteur**<br />*Wie roept het systeem aan om deze dienst te vervullen?*                             | **Beheerder**                                                                                     |
-| **Belanghebbende en belangen**<br />*Wie geeft er om deze Use case en wat willen ze?*                         | - **Beheerders** & **Moderators** & **Muzikanten**: Willen een volledig systeem kunnen gebruiken. |
-| **Randvoorwaarden**<br />*In welke staat moet het systeem zijn, voordat deze Use case kan worden uitgevoerd?* |                                                                                                   |
-| **Succesgarantie**<br />*In welke staat moet het systeem zijn, nadat deze Use case is uitgevoerd?*            |                                                                                                   |
-| **Successcenario**<br />*Een typisch, onvoorwaardelijke happy path-scenario.*                                 |                                                                                                   |
-| **Extensies**<br />*Alternatieve scenario's van succes of mislukking.*                                        |                                                                                                   |
-| **Speciale vereisten**<br />*Gerelateerde non-functionele vereisten.*                                         |                                                                                                   |
-| **Technologie- en gegevensvariaties**<br />*Verschillende I/O-methoden en dataformaten.*                      |                                                                                                   |
-| **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               |                                                                                                   |
-| **Diversen**<br />*Zoals openstaande kwesties.*                                                               |                                                                                                   |
+| Use case sectie                                              | Opmerking                                                    |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **Use case naam**<br />*Naam van Use case.*                  | Uitvoeren startup                                            |
+| **Domein**<br/>*Het systeem in ontwerp.*                     | Systeem                                                      |
+| **Niveau**<br />*"Gebruikersdoel" of "Sub functie"*          | Gebruikersdoel                                               |
+| **Primaire acteur**<br />*Wie roept het systeem aan om deze dienst te vervullen?* | **Beheerder**                                                |
+| **Belanghebbende en belangen**<br />*Wie geeft er om deze Use case en wat willen ze?* | - **Beheerders**, **moderators** & **muzikanten**: Willen een volledig systeem kunnen gebruiken. |
+| **Randvoorwaarden**<br />*In welke staat moet het systeem zijn, voordat deze Use case kan worden uitgevoerd?* | - Een **beheerder** heeft een nieuw account.                 |
+| **Succesgarantie**<br />*In welke staat moet het systeem zijn, nadat deze Use case is uitgevoerd?* | - Het systeem bevat minimaal 1 **muzikant**;<br/> - Het systeem bevat minimaal 1 instrument; <br/> - Het systeem bevat minimaal 1 sectie;<br/> - Het systeem bevat minimaal 1 orkest. |
+| **Successcenario**<br />*Een typisch, onvoorwaardelijke happy path-scenario.* | 1. **Beheerder** heeft zich geregistreerd in het systeem en komt terecht op bij de startup.<br/> 2. Systeem leidt **beheerder** om naar startup.<br/> 3. **Beheerder** vult startup-formulier in.<br/>4. Systeem valideert alle ingevulde gegevens.<br/> 5. Systeem toont overzicht van ingevulde gegevens.<br/> 6. **Beheerder** geeft aan dat de gegevens correct zijn ingevuld.<br/> 7. Systeem slaat gegevens op in het systeem. |
+| **Extensies**<br />*Alternatieve scenario's van succes of mislukking.* | *a. Ten alle tijden: Beheerder of moderator sluit onverwachts het startup-formulier:*<br />1. Systeem slaat concept mededeling op.<br />*4a. Ingevulde gegevens zijn niet valide:*<br />4a1. Systeem toont fouten in het startup-formulier. |
+| **Speciale vereisten**<br />*Gerelateerde non-functionele vereisten.* | - Het opslaan van het startup-formulier mag niet langer dan 1 minuut duren. |
+| **Technologie- en gegevensvariaties**<br />*Verschillende I/O-methoden en dataformaten.* |                                                              |
+| **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.* | 1 keer per muziekvereniging.                                 |
+| **Diversen**<br />*Zoals openstaande kwesties.*              | - *Mogelijkheden onderzoeken met betrekking tot een wachtrij inzetten om de aanmelding voor een evenement te verzenden wanneer er weer verbinding is met het internet, als dit niet het geval was tijdens het aanmelden.*<br />- *Onderzoeken wat de beste manier is om overzicht te geven van alle ingevulde gegevens.* |
 
 ### Systeem Sequence Diagram
 
-### Operatie contracten
-
-| Operatie contract sectie                                                                                      | Opmerking |
-| ------------------------------------------------------------------------------------------------------------- | --------- |
-| **Operatie**<br />*Naam van operatie met parameters.*                                                         |           |
-| **Verwijzingen**<br />*Use cases waar deze operatie in kan voorkomen*                                         |           |
-| **Randvoorwaarden**<br />*In welke staat moet het systeem zijn, voordat deze operatie kan worden uitgevoerd?* |           |
-| **Succesgarantie**<br />*In welke staat moet het systeem zijn, nadat deze operatie is uitgevoerd?*            |           |
+![PlantUML SDD execute startup](http://www.plantuml.com/plantuml/svg/JOzDJWCn38NtEOLLDY2L0xGBr0eqInRq19wC0Qk9FOeTYTuUfmMfk_VpHNa-c6FpNWlG3-Nk1BTWJNPcMR5XZUHIHjuu3_AkcJ6VlvfsMLwrQ8E7wJZjfjqTyKQVs8jFAlwEbU13PtLD2RC7lzd3SQai79-6tm0Qu0XIl7RElA8ud2xcL4TdLvNIbNb--VFx_-sds_J7NFgyXMxKR0iiiRnN4WzZb9rLGcdBtnGDsbCwa2pZi5y0)
+- `club`: De naam van de vereniging;
+- `users`: Een lijst met alle emailadressen die zijn toegevoegd;
+- `instruments`: Een lijst met alle toegevoegde instrumenten;
+- `sections`: Een lijst met alle toegevoegde secties;
+- `orchestras`: Een lijst met alle toegevoegde orkesten.
 
 
-## Toewijzen moderator
+<h2 id=assign-mod>Toewijzen moderator</h2>
+
 Dit doet de beheerder door naar een overzicht te gaan van alle leden. Daaruit kiest de beheerder iemand die moderator wordt. Daarna selecteert de beheerder de nieuwe rol van de gebruiker.
 ### Volledige Use case omschrijving
 
@@ -281,5 +300,6 @@ In dit hoofdstuk zullen er een aantal non-functionele eisen worden opgesteld. De
 | NFR9  | Het systeem moet voor minimaal 50% van de kernconcepten openstaan voor verandering.                                                                                        | Supportability |
 | NFR10 | Het systeem moet ten minste worden ondersteund op [de top 3 webbrowsers](https://gs.statcounter.com/browser-market-share).                                                 | Implementation |
 | NFR11 | Het systeem moet gebruik maken van HTTP/2.0 in combinatie met HTTPS om de veiligheid van de gebruikergegevens te waarborgen.                                               | Interfaces     |
+| NFR12 | Alle concepten voor alle formulieren worden maximaal 14 dagen bewaard, hierna worden deze voorgoed verwijderd.                                                             | ???            |
 
 # Gebruikersinterface sketches
