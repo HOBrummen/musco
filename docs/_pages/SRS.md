@@ -56,16 +56,23 @@ Een beheerder kan moderators toewijzen.<br/>
 [Use case omschrijving](#assign-mod)
 
 # Domeinmodel
-In het domeinmodel worden alle concepten in een schematische tekening weergegeven.
+In het domeinmodel worden alle concepten in een schematische tekening weergegeven. Ook is er een tabel toegevoegd om concepten uit het domeinmodel verder te beschrijven.
 
+Onder het domeinmodel wordt ook ingegaan op de keuzes die zijn gemaakt tijdens het ontwerpen van het domeinmodel.
 ## Concepten
-| Concept | Beschrijving |
-| ------- | ------------ |
-|         |              |
 
-![PlantUML Domain model](http://www.plantuml.com/plantuml/svg/RLFDRjim33vRJq5uboveWlJOe1WQh0kmmxeXs1w0aPb6Y2GQ4XqWsFRkasJNzhfT0edV3_d9p6CK3D8v2q_iq7Xmt91LyMnyYm4THBbQIh_1w4IR8qzqnCxAZhqyeoFOyu65PuG3wlDBuCut7zboW7UxxUv-Tw_KoJG4v5gvWYDte12LqXPZX1-H0lnKbK-6gYA7nghVh-3s4CbhoZZh4qK9gAf06DaR_wAg4YMfV9CqlUIpJwpEaPV9DP8MmtxaFBEOtbMCs4HeAEfWsaAQTHT1VIfM4zMoniAhvDhIQBbdcmnVRr-wQBH1FrMsZJD-Hk260Wgdw6ExJvVvqFEPqWM5XhZVZQCIkHn6zTSmFD3eC49r6OvyO6jpcZfJZe6TgZelnlwLE1dZyEI178PpHel1mw_bSamsbQOiirg9E-ZgkzLgKKEgzgVooTLDncxB-JsiLlyEgLJ6agQ6HTOkktnT5uTXBpQmfvQ3HFWmaDTZgtAQRSC6lbcyJimbbgn44TwAoeVOG4-883o9ZByOoPgx_sjwl84Z1tXGDrbrssCbvFI-IlLBE8syo3ED6vSwrBC5t81cBsXy3l1McOI1j6bDqQt7Dzv0BjE5ikWnDSx_vZy0)
+Alle rollen zijn in het hoofdstuk [Gebruikers](#gebruikers) beschreven. Deze rollen zijn ook als concepten terug te vinden. 
 
-Er is gekozen voor dit ontwerp omdat: ...
+| Concept    | Beschrijving                                                                    |
+| ---------- | ------------------------------------------------------------------------------- |
+| Notice     | Een notice is een mededeling                                                    |
+| Attachment | Een attachement is een bijlage die aan een notice kan worden toegevoegd.        |
+| Absence    | Een absence is een afmelding van een muzikant.                                  |
+| Event      | Een event is een evenement waar muzikanten voor zijn uitgenodigd kunnen worden. |
+
+![PlantUML Domain model](http://www.plantuml.com/plantuml/svg/VPBFRXD13CRlynHMk4LA1GU4kefGAo0I1mggu06SMRSPPVwiR6-a27XtTcSpqo67djQoVxQ_pxDteiWw1c_awEA0Z054pvv0b9szgdoc9nozxbBK1mm4ZscVD3N07ktncTCO-q_99uOtk_lTxUws8HZZKMY03--RP4mzNPBcu7e22eEU8L3O4uinrgC8_19Y-6qY1Z8Kq7cJs1v8b56CYzDt31HLpD_ISRyNYfQcfb68JRhGXWabHHUVJRPlAFPJqzBpjGugkuIikXGhyP3KvQ7gr9FfIIox8IDCrWqkYq1Lj8ThGJLPstsoc7lrF53TyPWyNS9lepZhC9OHVN2nb59FZ9gupFzoQdItmbmyEINAiYZsSzIZqkB_fvleAPk_LUltSjmohtKnqRXSbYaW7-VYh1csVpQRAhbDLQarTx5YyhkktjtSh5Um6JSbdBaEA7BoNW05jeLSmJfpRsUkF787J4DY5VYOkL9koFnm6RJaJbGd5h8lPFCJTF33uxaEBJ9zHVF9ErWEtCDJuaPe0pPNwm1pBA3fMYrNljw_Wo5BS762pMAYSRUU5pL_LWSsHKKNPSPVdBo-elPiZNbHkdZutwkvcufZyFy0)
+
+
 # Use case omschrijvingen
 In dit hoofdstuk worden alle use cases verder uitgewerkt om zo een duidelijk beeld te schetsen van de manier waarop de gebruiker het systeem gebruikt.
 
@@ -82,7 +89,7 @@ De volgende randvoorwaarden gelden voor alle Use cases <u>behalve</u> [Uitvoeren
 - De startup van het systeem is uitgevoerd;
 - Er zijn gegevens uit de startup aanwezig in het systeem.
 
-<h2 id=report-absence>Indienen afmelding</h2>
+<h2 id='report-absence'>Indienen afmelding</h2>
 Alle muzikanten die in een orkest zitten en een instrument bespelen kunnen zich afmelden voor geplande repetities. Dit doet een lid door de datum van afwezigheid aan te geven. Ook wordt er aangegeven of het lid meerdere repetities afwezig is en hoeveel dit er dan zijn. Verder kan er een reden opgegeven worden voor de afmelding.
 
 ### Volledige Use case omschrijving
@@ -113,7 +120,7 @@ Alle muzikanten die in een orkest zitten en een instrument bespelen kunnen zich 
 - `start`: De datum vanaf wanneer de **muzikant** afwezig is;
 - `end`: De datum waarop de **muzikant** weer aanwezig is, dit veld is optioneel.
 
-<h2 id=sign-up-event>Aanmelden evenement</h2>
+<h2 id='sign-up-event'>Aanmelden evenement</h2>
 
 Een muzikant kan zichzelf aanmelden voor evenementen als de muzikant hiervoor is uitgenodigd. Deze uitnodigingen zijn te zien in het mededelingenoverzicht. De gebruiker krijgt hier ook een notificatie over. Als een muzikant zich wil aanmelden voor een evenement hoeft de muzikant enkel aan te geven dat hij/zij erbij is. Als een evenement de mogelijjkheid geeft opmerkingen te plaatsen kan de muzikant dit doen voordat hij zich aanmeld.
 ### Volledige Use case omschrijving
@@ -140,7 +147,7 @@ Een muzikant kan zichzelf aanmelden voor evenementen als de muzikant hiervoor is
 - `user`: De geauthenticeerde **muzikant**;
 - `remark`: Opmerkingen vanuit de **muzikant**, dit veld is optioneel afhankelijk van de mogelijkheid vanuit het evenement.
 
-<h2 id=plan-event>Plannen evenement</h2>
+<h2 id='plan-event'>Plannen evenement</h2>
 
 Moderators kunnen evenementen plannen voor verschillende muzikanten, commissies, secties, instrumentgroepen en/of orkesten. Om een evenement te plannen moet een moderator een datum, start- en eindtijd, een titel en de genodigden invoeren. De moderator kiest uit een keuzemenu wie er voor een evenement zijn uitgenodigd. Voor de eindtijd kan er een vast tijdstip gekozen worden of een schatting. Verder kan een evenement meerdere dagen duren. Ook kan er aangegeven worden dat de genodigde een invulveld moet invullen. Dit wordt gedaan door een selectievak. Het invulveld is altijd verplicht.
 ### Volledige Use case omschrijving
@@ -171,7 +178,7 @@ Moderators kunnen evenementen plannen voor verschillende muzikanten, commissies,
 - `endTime`: De eindtijd van het evenement;
 - `invitees`: Een lijst met alle genodigden voor het evenement.
 
-<h2 id=dispatch-notice>Afhandelen mededeling</h2>
+<h2 id='dispatch-notice'>Afhandelen mededeling</h2>
 
 Moderators kunnen mededelingen maken om te versturen naar verschillende muzikanten, commissies, secties, instrumentgroepen en/of orkesten. Deze mededelingen bestaan uit een titel, een inhoud en mogelijke bijlagen. Als de mededeling wordt verzonden krijgen de geadresseerden een melding op de telefoon van een lid. De geadresseerde kunnen via de melding de mededeling openen en bijlagen downloaden.
 ### Volledige Use case omschrijving
@@ -187,7 +194,7 @@ Moderators kunnen mededelingen maken om te versturen naar verschillende muzikant
 | **Succesgarantie**<br />*In welke staat moet het systeem zijn, nadat deze Use case is uitgevoerd?*            | - **Muzikanten** hebben een notificatie ontvangen over de nieuwe mededeling.<br/> - Mededeling is opgeslagen in het systeem.                                                                                                                                                                                        |
 | **Successcenario**<br />*Een typisch, onvoorwaardelijke happy path-scenario.*                                 | 1. **Beheerder** of **moderator** geeft aan een mededeling te willen versturen.<br/> 2. Systeem toont mededelingenformulier.<br/>3. **Beheerder** of **moderator** vult het formulier in.<br/> 5. **Beheerder** of **moderator** geeft aan de mededeling te willen versturen.<br/> 6. Systeem verstuurt mededeling. |
 | **Extensies**<br />*Alternatieve scenario's van succes of mislukking.*                                        | *a. Ten alle tijden: **Beheerder** of **moderator** sluit onverwachts het mededelingenformulier:*<br/> 1. Systeem slaat concept mededeling op.                                                                                                                                                                      |
-| **Speciale vereisten**<br />*Gerelateerde non-functionele vereisten.*                                         | - Een mededeling moet binnen 5 minuten kunnen worden opgesteld.<br/> - Een mededeling wordt verstuurd naar de API binnen 10 seconden.                                                                                                                                                                               |
+| **Speciale vereisten**<br />*Gerelateerde non-functionele vereisten.*                                         | - Een mededeling moet binnen 5 minuten kunnen worden opgesteld.<br/> - De mededeling naar alle geaddresseerde is binnen 1 minuut verstuurd zijn als er een internetverbinding is.                                                                                                                                   |
 | **Technologie- en gegevensvariaties**<br />*Verschillende I/O-methoden en dataformaten.*                      |                                                                                                                                                                                                                                                                                                                     |
 | **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               | minimaal: 1 keer per week.<br/> verwachting: 1-5 keer per week.                                                                                                                                                                                                                                                     |
 | **Diversen**<br />*Zoals openstaande kwesties.*                                                               | *Mogelijkheid om notificaties te sturen naar IOS/OSX systemen via een Progressive WebApplication(PWA). Mogelijkheden zijn [hier](https://stackoverflow.com/questions/63819485/sending-push-notifications-to-ios-from-pwa/64576541#64576541) te vinden.*                                                             |
@@ -200,7 +207,7 @@ Moderators kunnen mededelingen maken om te versturen naar verschillende muzikant
 - `attachments`: Een lijst met optionele bijlagen;
 - `recipients`: Een lijst met ontvangers. Dit kunnen muzikanten, commissies, secties, instrumentgroepen en/of orkesten zijn.
 
-<h2 id=execute-startup>Uitvoeren startup</h2>
+<h2 id='execute-startup'>Uitvoeren startup</h2>
 
 Als het systeem voor het eerst wordt gebruikt moet er een startup worden uitgevoerd. Dit zorgt ervoor dat de vereniging zelf kan bepalen welke gegevens er in het systeem komen.
 
@@ -239,42 +246,36 @@ Na de instrumenten wordt er gevraagd naar de gebruikers van het systeem. Er kan 
 - `orchestras`: Een lijst met alle toegevoegde orkesten.
 
 
-<h2 id=assign-mod>Toewijzen moderator</h2>
+<h2 id='assign-mod'>Toewijzen moderator</h2>
 
 Dit doet de beheerder door naar een overzicht te gaan van alle leden. Daaruit kiest de beheerder iemand die moderator wordt. Daarna selecteert de beheerder de nieuwe rol van de gebruiker.
 ### Volledige Use case omschrijving
 
-| Use case sectie                                                                                               | Opmerking                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **Use case naam**<br />*Naam van Use case.*                                                                   | Toewijzen moderator                                                                                        |
-| **Domein**<br/>*Het systeem in ontwerp.*                                                                      | Systeem                                                                                                    |
-| **Niveau**<br />*"Gebruikersdoel" of "Sub functie"*                                                           | Gebruikersdoel                                                                                             |
-| **Primaire acteur**<br />*Wie roept het systeem aan om deze dienst te vervullen?*                             | **Beheerder**                                                                                              |
-| **Belanghebbende en belangen**<br />*Wie geeft er om deze Use case en wat willen ze?*                         | **Beheerder**: Wil hulp bij het modereren van het systeem en het aanmaken van mededelingen en evenementen. |
-| **Randvoorwaarden**<br />*In welke staat moet het systeem zijn, voordat deze Use case kan worden uitgevoerd?* |                                                                                                            |
-| **Succesgarantie**<br />*In welke staat moet het systeem zijn, nadat deze Use case is uitgevoerd?*            |                                                                                                            |
-| **Successcenario**<br />*Een typisch, onvoorwaardelijke happy path-scenario.*                                 |                                                                                                            |
-| **Extensies**<br />*Alternatieve scenario's van succes of mislukking.*                                        |                                                                                                            |
-| **Speciale vereisten**<br />*Gerelateerde non-functionele vereisten.*                                         |                                                                                                            |
-| **Technologie- en gegevensvariaties**<br />*Verschillende I/O-methoden en dataformaten.*                      |                                                                                                            |
-| **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               |                                                                                                            |
-| **Diversen**<br />*Zoals openstaande kwesties.*                                                               |                                                                                                            |
+| Use case sectie                                                                                               | Opmerking                                                                                                                                                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Use case naam**<br />*Naam van Use case.*                                                                   | Toewijzen moderator                                                                                                                                                                                                                                                                                          |
+| **Domein**<br/>*Het systeem in ontwerp.*                                                                      | Systeem                                                                                                                                                                                                                                                                                                      |
+| **Niveau**<br />*"Gebruikersdoel" of "Sub functie"*                                                           | Gebruikersdoel                                                                                                                                                                                                                                                                                               |
+| **Primaire acteur**<br />*Wie roept het systeem aan om deze dienst te vervullen?*                             | **Beheerder**                                                                                                                                                                                                                                                                                                |
+| **Belanghebbende en belangen**<br />*Wie geeft er om deze Use case en wat willen ze?*                         | **Beheerder**: Wil hulp bij het modereren van het systeem en het aanmaken van mededelingen en evenementen.                                                                                                                                                                                                   |
+| **Randvoorwaarden**<br />*In welke staat moet het systeem zijn, voordat deze Use case kan worden uitgevoerd?* |                                                                                                                                                                                                                                                                                                              |
+| **Succesgarantie**<br />*In welke staat moet het systeem zijn, nadat deze Use case is uitgevoerd?*            | - Één of meerdere **muzikanten** hebben een nieuwe rol als **moderator**.                                                                                                                                                                                                                                    |
+| **Successcenario**<br />*Een typisch, onvoorwaardelijke happy path-scenario.*                                 | 1. **Beheerder** geeft aan een **muzikant** te willen toewijzen als **moderator**.<br/> 2. Systeem toont lijst aan **muzikanten**. <br/> 3. **Beheerder** kiest welke **muzikanten** toe worden gewezen als **moderators**.<br/> 4. Systeem wijst **moderator**-rol toe aan de geselecteerde **muzikanten**. |
+| **Extensies**<br />*Alternatieve scenario's van succes of mislukking.*                                        | *a. Ten alle Tijde: **Beheerder**  verlaat toewijzen-formulier zonder op te slaan:*<br/> a1. Systeem slaat niets op en voert geen verdere actie's uit.                                                                                                                                                       |
+| **Speciale vereisten**<br />*Gerelateerde non-functionele vereisten.*                                         | - Een **beheerder** moet binnen 1 minuut een **muzikant** tot **moderator** kunnen toewijzen.<br/> - De toewijzing is binnen 10 minuut toegepast in het systeem als er een internetverbinding aanwezig is.                                                                                                   |
+| **Technologie- en gegevensvariaties**<br />*Verschillende I/O-methoden en dataformaten.*                      |                                                                                                                                                                                                                                                                                                              |
+| **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               | Verwachting: 0-10 keer per jaar.                                                                                                                                                                                                                                                                             |
+| **Diversen**<br />*Zoals openstaande kwesties.*                                                               | *Nut van notificatie naar nieuwe moderators onderzoeken.*                                                                                                                                                                                                                                                    |
 
 ### Systeem Sequence Diagram
+![SDD Toewijzen moderator](http://www.plantuml.com/plantuml/svg/NOun3i8m34NtdC8g2mmSe1rGAr0s6E04RXAgg4bSnSxGsvDM38Z5ilzxbdxFWbbA38fddnRC685b3QxExCqV6T7CKwQIx9K2PJZeGRUw_J5kxeqbYAOa3umEdZIIa59efFfD1uEDFdaMh7S3o81ReEgtUECNJ0AlbSN5ZV6-ARKxSBvyWwuozbEwapqMTfbFgdV9rguV)
 
-### Operatie contracten
-
-| Operatie contract sectie                                                                                      | Opmerking |
-| ------------------------------------------------------------------------------------------------------------- | --------- |
-| **Operatie**<br />*Naam van operatie met parameters.*                                                         |           |
-| **Verwijzingen**<br />*Use cases waar deze operatie in kan voorkomen*                                         |           |
-| **Randvoorwaarden**<br />*In welke staat moet het systeem zijn, voordat deze operatie kan worden uitgevoerd?* |           |
-| **Succesgarantie**<br />*In welke staat moet het systeem zijn, nadat deze operatie is uitgevoerd?*            |           |
-
+- `users`: Een lijst aan muzikant(en) welke als moderator worden toegewezen.
 
 # Andere functionele eisen
 
 In dit hoofdstuk worden andere functionele eisen gesteld aan de applicatie. Aan de eisen in deze lijst moeten voldaan worden maar zijn het niet waard om te specificeren in een volledige Use case omschrijving.
+
 | Code | Omschrijving                                                                                                                               |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | FR1  | Beheerders en moderators moeten alle afmeldingen van alle muzikanten kunnen bekijken en in deze lijst kunnen zoeken, filteren en sorteren. |
