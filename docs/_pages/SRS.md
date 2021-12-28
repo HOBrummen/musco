@@ -306,3 +306,5 @@ In dit hoofdstuk zullen er een aantal non-functionele eisen worden opgesteld. De
 
 
 # Gebruikersinterface sketches
+
+Alle interface sketches zijn gemaakt in Figma. De sketches zijn [hier](https://www.figma.com/files/project/25996599/Design-system?fuid=951214027458416875) te vinden.
