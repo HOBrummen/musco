@@ -295,16 +295,19 @@ In dit hoofdstuk zullen er een aantal non-functionele eisen worden opgesteld. De
 | NFR2  | De documentatie geeft een duidelijke en korte omschrijving met schermafbeeldingen die de functionaliteit uitlegt.                                                          | Usability      |
 | NFR3  | Alle fouten gericht op de gebruiker van het systeem, moeten geformatteerd worden zodat de gebruiker het bericht kan lezen en er geen code lekt naar de applicatie.         | Reliability    |
 | NFR4  | Alle concepten voor alle formulieren worden maximaal 14 dagen bewaard, hierna worden deze voorgoed verwijderd.                                                             | Reliability    |
-| NFR5  | Het systeem moet minimaal 50 gelijktijdige verbindingen ondersteunen.                                                                                                      | Performance    |
-| NFR6  | De responstijd van verzoeken naar de API moet 80% van de tijd minder dan 2 seconde zijn.                                                                                   | Performance    |
-| NFR7  | Mededelingen moeten worden verzonden met een vertraging van niet meer dan 10 minuten.                                                                                      | Performance    |
-| NFR8  | Er moeten regelmatig updates en upgrade plaatsvinden zodat de veiligheid van het systeem kan worden gewaardborgd.                                                          | Supportability |
-| NFR9  | Bugfixes en kleine verbeteringen moeten worden gedocumenteerd in GitHub.                                                                                                   | Supportability |
-| NFR10 | Het systeem moet voor minimaal 50% van de kernconcepten openstaan voor verandering.                                                                                        | Supportability |
-| NFR11 | Het systeem moet ten minste worden ondersteund op [de top 3 webbrowsers](https://gs.statcounter.com/browser-market-share).                                                 | Implementation |
-| NFR12 | Het systeem moet gebruik maken van HTTP/2.0 in combinatie met HTTPS om de veiligheid van de gebruikergegevens te waarborgen.                                               | Interfaces     |
+| NFR5  | Alle afmeldingen worden maximaal 1 jaar bewaard. Dit is aan te passen in de systeeminstellingen.                                                                           | Reliability    |
+| NFR6  | Het systeem moet minimaal 50 gelijktijdige verbindingen ondersteunen.                                                                                                      | Performance    |
+| NFR7  | De responstijd van verzoeken naar de API moet 80% van de tijd minder dan 2 seconde zijn.                                                                                   | Performance    |
+| NFR8  | Mededelingen moeten worden verzonden met een vertraging van niet meer dan 10 minuten.                                                                                      | Performance    |
+| NFR9  | Er moeten regelmatig updates en upgrade plaatsvinden zodat de veiligheid van het systeem kan worden gewaardborgd.                                                          | Supportability |
+| NFR10 | Bugfixes en kleine verbeteringen moeten worden gedocumenteerd in GitHub.                                                                                                   | Supportability |
+| NFR11 | Het systeem moet voor minimaal 50% van de kernconcepten openstaan voor verandering.                                                                                        | Supportability |
+| NFR12 | Het systeem moet ten minste worden ondersteund op [de top 3 webbrowsers](https://gs.statcounter.com/browser-market-share).                                                 | Implementation |
+| NFR13 | Het systeem moet gebruik maken van HTTP/2.0 in combinatie met HTTPS om de veiligheid van de gebruikergegevens te waarborgen.                                               | Interfaces     |
 
 
 # Gebruikersinterface sketches
 
 Alle interface sketches zijn gemaakt in Figma. De sketches zijn [hier](https://www.figma.com/files/project/25996599/Design-system?fuid=951214027458416875) te vinden.
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="650px" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAXIDrhg3f6KtETxRUAOUfI%2FApp" allowfullscreen allowpaymentrequest="false" loading="lazy" name="Figma design document"></iframe>
