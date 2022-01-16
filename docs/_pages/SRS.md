@@ -6,8 +6,8 @@ categories: [SRS, Documentation]
 sources:
     - link: https://plantuml.com/starting
       text: PlantUML
-		- link: https://www.craiglarman.com/wiki/index.php?title=Book_Applying_UML_and_Patterns
-			text: Applying UML & patterns - Craig Larman
+    - link: https://www.craiglarman.com/wiki/index.php?title=Book_Applying_UML_and_Patterns
+      text: Applying UML & patterns - Craig Larman
 ---
 
 # Introductie
