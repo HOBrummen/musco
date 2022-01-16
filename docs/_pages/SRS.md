@@ -3,6 +3,11 @@ layout: page
 title: System Requirement Specification
 permalink: /srs/
 categories: [SRS, Documentation]
+sources:
+    - link: https://plantuml.com/starting
+      text: PlantUML
+		- link: https://www.craiglarman.com/wiki/index.php?title=Book_Applying_UML_and_Patterns
+			text: Applying UML & patterns - Craig Larman
 ---
 
 # Introductie
@@ -311,3 +316,5 @@ In dit hoofdstuk zullen er een aantal non-functionele eisen worden opgesteld. De
 Alle interface sketches zijn gemaakt in Figma. De sketches zijn [hier](https://www.figma.com/files/project/25996599/Design-system?fuid=951214027458416875) te vinden.
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="650px" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAXIDrhg3f6KtETxRUAOUfI%2FApp" allowfullscreen allowpaymentrequest="false" loading="lazy" name="Figma design document"></iframe>
+
+*By: [Imre Boersma](https://imreboersma.nl)*
