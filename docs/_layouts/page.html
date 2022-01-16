@@ -9,4 +9,19 @@ layout: default
   <div class="entry">
     {{ content }}
   </div>
+	{%if page.sources %}
+	<hr />
+	<div class="source">
+		Sources:
+		<ul>
+			{% for source in page.sources %}
+			<li>
+				<a target="_blank" href="{{source.link}}" rel="noopener noreferrer">
+					{{source.text}}
+				</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endif %}
 </article>
