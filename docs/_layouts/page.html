@@ -9,8 +9,21 @@ layout: default
   <div class="entry">
     {{ content }}
   </div>
-	{%if page.sources %}
+	{% if page.sources or page.authors %}
 	<hr />
+	{% if page.authors%}
+	<div class="author">
+		Author(s):
+		<ul>
+			{% for author in page.authors %}
+				<li>
+					<p>{{ author }}</p>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endif %}
+	{% if page.sources %}
 	<div class="source">
 		Sources:
 		<ul>
@@ -23,5 +36,6 @@ layout: default
 			{% endfor %}
 		</ul>
 	</div>
+	{% endif %}
 	{% endif %}
 </article>
