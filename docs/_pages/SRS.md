@@ -3,6 +3,8 @@ layout: page
 title: System Requirement Specification
 permalink: /srs/
 categories: [SRS, Documentation]
+authors: 
+    - Imre Boersma
 sources:
     - link: https://plantuml.com/starting
       text: PlantUML
@@ -68,14 +70,17 @@ Onder het domeinmodel wordt ook ingegaan op de keuzes die zijn gemaakt tijdens h
 
 Alle rollen zijn in het hoofdstuk [Gebruikers](#gebruikers) beschreven. Deze rollen zijn ook als concepten terug te vinden. 
 
-| Concept    | Beschrijving                                                                    |
-| ---------- | ------------------------------------------------------------------------------- |
-| Notice     | Een notice is een mededeling                                                    |
-| Attachment | Een attachement is een bijlage die aan een notice kan worden toegevoegd.        |
-| Absence    | Een absence is een afmelding van een muzikant.                                  |
-| Event      | Een event is een evenement waar muzikanten voor zijn uitgenodigd kunnen worden. |
+| Concept    | Beschrijving                                                                                                                                    |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Notice     | Een *notice* is een mededeling                                                                                                                  |
+| Attachment | Een *attachement* is een bijlage die aan een *notice* kan worden toegevoegd.                                                                    |
+| Absence    | Een *absence* is een afmelding van een **muzikant**.                                                                                            |
+| Event      | Een *event* is een evenement waar **muzikanten** voor zijn uitgenodigd kunnen worden.                                                           |
+| Instrument | Een *instrument* wordt door een **muzikant** bespeeld en zit in een sectie.                                                                     |
+| Orchestra  | Een *orchestra* is een orkest waar *instrumenten* in spelen.                                                                                    |
+| User       | Een *User* is een gebruiker in het systeem en heeft altijd een rol. Deze rollen zijn in het hoofdstuk [Gebruikers](#gebruikers) gespecificeerd. |
 
-![PlantUML Domain model](http://www.plantuml.com/plantuml/svg/VPBFRXD13CRlynHMk4LA1GU4kefGAo0I1mggu06SMRSPPVwiR6-a27XtTcSpqo67djQoVxQ_pxDteiWw1c_awEA0Z054pvv0b9szgdoc9nozxbBK1mm4ZscVD3N07ktncTCO-q_99uOtk_lTxUws8HZZKMY03--RP4mzNPBcu7e22eEU8L3O4uinrgC8_19Y-6qY1Z8Kq7cJs1v8b56CYzDt31HLpD_ISRyNYfQcfb68JRhGXWabHHUVJRPlAFPJqzBpjGugkuIikXGhyP3KvQ7gr9FfIIox8IDCrWqkYq1Lj8ThGJLPstsoc7lrF53TyPWyNS9lepZhC9OHVN2nb59FZ9gupFzoQdItmbmyEINAiYZsSzIZqkB_fvleAPk_LUltSjmohtKnqRXSbYaW7-VYh1csVpQRAhbDLQarTx5YyhkktjtSh5Um6JSbdBaEA7BoNW05jeLSmJfpRsUkF787J4DY5VYOkL9koFnm6RJaJbGd5h8lPFCJTF33uxaEBJ9zHVF9ErWEtCDJuaPe0pPNwm1pBA3fMYrNljw_Wo5BS762pMAYSRUU5pL_LWSsHKKNPSPVdBo-elPiZNbHkdZutwkvcufZyFy0)
+![PlantUML Domain model](http://www.plantuml.com/plantuml/svg/VPBFZXCn3CRlUGght2fr1GU4TbIXNG6LEB2W5Jo0ctYtKVDdP7igAjXtfvDECgL2d6BPFt_vxEHE55c768piVUgHCOBeCH28ihTNbO_qX4FGJKxwW97WCM-pvWjWYtR_p7b8xaCEcU7Lvdvpkxcz81ZJNgY7TsylaYaxcf9cvnq1nLwF42bkYSKO6r04VWWn_3898ncAw8F9R7SaoYZ6fzCvH4egvgLst6-5agLJqo349a-qOKB9oQTdKyOtb9nvcNe-Dw5wbv1LdrCZ7hBw8gfU0ndwQObxDOx4ikyBocHzxuiPL4MxkpRMaaqcP8kbLuyzjRiUSw0f_3A8jnvJbN3HfrhAZXWrSzN_T6Z-_stGfuDNecAFaXiZXqhdVNptOrTovMoUlzPbLzrvcgA1vqqpHUJzM1ozm_htQjMiNwQQvPQRHZBbdHTlRcwM2rWDgngEN0UKE8SWW0BhIYvWMRZNXPiUlGEcFhCAl2zSBSzaUSWpQCaVg2esqZLo_XGTV0juRABLPcXeMNq7vmKxUCeyorQsU9wtrW6MM43pjLjkmct_7VJ5Wayds9o7k9XkMTJd7zQ1pKdH9ndnUPB_Nz5wriRCJelqwkzPpHqbDyJm1m00)
 
 
 # Use case omschrijvingen
@@ -316,5 +321,4 @@ In dit hoofdstuk zullen er een aantal non-functionele eisen worden opgesteld. De
 Alle interface sketches zijn gemaakt in Figma. De sketches zijn [hier](https://www.figma.com/files/project/25996599/Design-system?fuid=951214027458416875) te vinden.
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="650px" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAXIDrhg3f6KtETxRUAOUfI%2FApp" allowfullscreen allowpaymentrequest="false" loading="lazy" name="Figma design document"></iframe>
-
-*By: [Imre Boersma](https://imreboersma.nl)*
+<!-- TODO: Userflows weergeven -->

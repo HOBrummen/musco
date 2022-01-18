@@ -1,4 +1,4 @@
-@startuml domain model
+@startuml
 skinparam style strictuml
 skinparam DefaultFontName Roboto
 skinparam backgroundColor #FAF9F9
@@ -21,12 +21,15 @@ reasoning
 start
 end
 }
+
 class Instrument {
 name
 section
 }
+
 class Notice {
 title
+excerpt
 description
 recipients
 attachments
@@ -37,6 +40,7 @@ title
 location
 type
 }
+
 class Role
 class Musician
 class Admin
@@ -44,6 +48,7 @@ class Moderator
 
 class Event {
 name
+excerpt
 description
 invitees
 attendees
