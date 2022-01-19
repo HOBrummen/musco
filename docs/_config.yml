@@ -24,11 +24,11 @@ footer-links:
   flickr:
   github: imreboersma
   instagram:
-  linkedin: 
+  linkedin:
   pinterest:
   rss: rss
   twitter:
-  stackoverflow: 
+  stackoverflow:
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/
   playconsole:
@@ -87,8 +87,11 @@ plugins:
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
   - jekyll-seo-tag
   - jekyll-paginate
+  - jekyll-purgecss
 
 include: ['_pages']
+
+css_dir: "assets"
 
 paginate: 6
 paginate_path: /page:num/

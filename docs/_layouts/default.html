@@ -5,8 +5,8 @@
     {% seo title=true %}
     {% include meta.html %}
 
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="/assets/style.css" />
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' type='text/css'>
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" href="/assets/style.css" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="/feed.xml" />
     <link rel="canonical" href="{{ page.url }}" />
 
