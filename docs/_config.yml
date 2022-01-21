@@ -108,6 +108,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-purgecss
+  - jekyll-toc
 
 include: ["_pages"]
 

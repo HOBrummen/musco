@@ -4,69 +4,70 @@ title: System Requirement Specification
 permalink: /srs/
 categories: [SRS, Documentation]
 authors: 
-    - Imre Boersma
+  - Imre Boersma
 sources:
-    - link: https://plantuml.com/starting
-      text: PlantUML
-    - link: https://www.craiglarman.com/wiki/index.php?title=Book_Applying_UML_and_Patterns
-      text: Applying UML & patterns - Craig Larman
+  - link: https://plantuml.com/starting
+    text: PlantUML
+  - link: https://www.craiglarman.com/wiki/index.php?title=Book_Applying_UML_and_Patterns
+    text: Applying UML & patterns - Craig Larman
+toc: true
 ---
 
-# Introductie
-## Beschrijving
+# 1. Introductie
+## 1.2. Beschrijving
 Musco is een applicatie die de ledenadministratie van muziekverenigingen uitbreidt met het versturen van mededelingen, afmelden voor repetities en de mogelijkheid om evenementen te organiseren. Dit doet Musco door te verbinden met het huidige ledenadministratiesysteem en de functionaliteiten uit te breiden.
 
 Musco biedt een applicatie waarin mededelingen kunnen worden verstuurd naar de muzikanten en waar muzikanten zich kunnen afmelden voor repetities. Ook kunnen er evenementen gepland worden in de verenigingsagenda. Muzikanten kunnen zich aanmelden voor deze evenementen en zo meer informatie over evenementen verkrijgen.
 
-## Gebruikers
+## 1.3. Gebruikers
 
 Musco wordt gebruikt door muzikanten van een muziekvereniging. Muzikanten worden opgedeeld in instrumenten, secties en orkesten. Verder kunnen er commissies aangemaakt worden. Elke commissie heeft minstens één moderator. Commissies bestaan verder uit muzikanten. Alleen de moderator uit een commissie kan een evenement aanmaken vanuit de naam van de commissie van de moderator. Het systeem wordt beheerd door één of meerdere beheerders.
 
 Rollen zijn incrementeel. Dit wil zeggen dat een moderator ook alle functionaliteiten van een lid kan gebruiken. Hetzelfde geldt voor beheerders. Zij kunnen alle functionaliteiten van een moderator en een lid gebruiken
 
-### Muzikant
+### 1.3.1. Muzikant
 Muzikanten zijn gebruikers die toegang hebben tot het systeem. Muzikanten kunnen zich afmelden voor repetities en zich aanmelden voor evenementen. Muzikanten kunnen hun eigen gegevens aanpassen en mededelingen ontvangen. Deze mededelingen krijgen ze via mail of notificaties op de telefoon binnen. Gebruikers kunnen aangeven via welke medium/media zij de mededelingen willen ontvangen.
-### Moderator
+### 1.3.2. Moderator
 Een moderator kan een overzicht van afmeldingen bekijken. De moderator kan mededelingen, evenementen en commissies aanmaken. Als een moderator een commissie aanmaakt is hij de beheerder van de aangemaakte commissie.
-### Beheerder
+### 1.3.3. Beheerder
 Beheerders hebben de meeste rechten binnen het systeem. Beheerders kunnen moderators aanwijzen en beheren alle gegevens in het systeem. Deze rol kan als enige andere beheerders aanwijzen. Beheerders kunnen ook alles doen wat moderators kunnen uitvoeren.
-### Gebruiker
+### 1.3.4. Gebruiker
 Een gebruiker is iemand die de website van Musco bezoekt. Hij kan niet in het systeem en kan geen functionaliteiten gebruiken. Een gebruiker kan zich enkel inlezen in de functionaliteiten van Musco. Een gebruiker kan ook een demo aanvragen.
-## Werkomgeving
+## 1.4. Werkomgeving
 De applicatie wordt gemaakt met behulp van Flutter. Flutter zorgt ervoor dat de applicatie gedistribueerd kan worden op Android, web en IOS met één codebase. De data van het systeem wordt in een PostgreSQL database opgeslagen in de cloud. Deze data wordt in de applicatie opgehaald door middel van een GraphQL API. Deze API wordt geschreven in TypeScript.
-## Ontwerp & implementatie eisen
+## 1.5. Ontwerp & implementatie eisen
 Het systeem moet goedkoop in de cloud worden geïmplementeerd. Dit komt omdat de kosten voor persoonlijke rekening zijn. De API moet in een “Strongly typed” programmeertaal ontwikkeld worden. Dit wordt aangehouden zodat er tijdens het programmeren runtime errors kunnen worden voorkomen.
 
-## Product functionaliteiten
+## 1.6. Product functionaliteiten
 
 ![PlantUML Use case diagram](http://www.plantuml.com/plantuml/svg/PP1DJiCm48NtFeKbDc7H0xIhXfz8BAWGa0DCuqbgQiz4zgH8FJsJbaOMRAodDvyyxyqs2oIPOh1jHjk1Fix3a22QVFGqWYgxX-uu99x8FNBWPE-Qkbatwu9umXwc80sJx22YVUSz2niJi1ShR9CV3g8_9-p4CvdDwtJsHo3Pg6I72OIJwWSy82Q7gatrGiuZ8Lde8mRdQRYtzOTDE7AIUf-HEZHL3JHF5SEJqX59BbZs0xNZitfYghS0HF-GKTrVeEuFG0w3CX4TghgjqpLkn-BdNQsN4sDIw7gsSIQkkXrDzSduxR_Eyn-tJXS0yXn6UnfpwsrNgpz5oacPVJcF3eh4fLrcN2we_fAiD8iqMoGtnV03)
 
 *Vanaf dit punt worden diagrammen altijd in het Engels weergegeven. Dit wordt gedaan om consistentie redenen met de code.*
 
-### Indienen afmelding
+### 1.6.1. Indienen afmelding
 Alle muzikanten die in een orkest zitten en een instrument bespelen kunnen zich afmelden voor geplande repetities.<br/>
 [Use case omschrijving](#report-absence)
-### Aanmelden evenement
+### 1.6.2. Aanmelden evenement
 Een muzikant kan zichzelf aanmelden voor evenementen als de muzikant hiervoor is uitgenodigd.<br/>
 [Use case omschrijving](#sign-up-event)
-### Plannen evenement
+### 1.6.3. Plannen evenement
 Moderators kunnen evenementen plannen voor verschillende muzikanten, commissies, secties, instrumentgroepen en/of orkesten.<br/>
 [Use case omschrijving](#plan-event)
-### Afhandelen mededeling
+### 1.6.4. Afhandelen mededeling
 Moderators kunnen mededelingen maken om te versturen naar verschillende muzikanten, commissies, secties, instrumentgroepen en/of orkesten.<br/>
 [Use case omschrijving](#dispatch-notice)
-### Uitvoeren startup
+### 1.6.5. Uitvoeren startup
 Als het systeem voor het eerst wordt gebruikt moet er een startup worden uitgevoerd. Dit zorgt ervoor dat de vereniging zelf kan bepalen welke gegevens er in het systeem komen.<br/>
 [Use case omschrijving](#execute-startup)
-### Toewijzen moderator
+### 1.6.6. Toewijzen moderator
 Een beheerder kan moderators toewijzen.<br/>
 [Use case omschrijving](#assign-mod)
 
-# Domeinmodel
+# 2. Domeinmodel
 In het domeinmodel worden alle concepten in een schematische tekening weergegeven. Ook is er een tabel toegevoegd om concepten uit het domeinmodel verder te beschrijven.
 
 Onder het domeinmodel wordt ook ingegaan op de keuzes die zijn gemaakt tijdens het ontwerpen van het domeinmodel.
-## Concepten
+## 2.1. Concepten
 
 Alle rollen zijn in het hoofdstuk [Gebruikers](#gebruikers) beschreven. Deze rollen zijn ook als concepten terug te vinden. 
 
@@ -83,7 +84,7 @@ Alle rollen zijn in het hoofdstuk [Gebruikers](#gebruikers) beschreven. Deze rol
 ![PlantUML Domain model](http://www.plantuml.com/plantuml/svg/VPBFZXCn3CRlUGght2fr1GU4TbIXNG6LEB2W5Jo0ctYtKVDdP7igAjXtfvDECgL2d6BPFt_vxEHE55c768piVUgHCOBeCH28ihTNbO_qX4FGJKxwW97WCM-pvWjWYtR_p7b8xaCEcU7Lvdvpkxcz81ZJNgY7TsylaYaxcf9cvnq1nLwF42bkYSKO6r04VWWn_3898ncAw8F9R7SaoYZ6fzCvH4egvgLst6-5agLJqo349a-qOKB9oQTdKyOtb9nvcNe-Dw5wbv1LdrCZ7hBw8gfU0ndwQObxDOx4ikyBocHzxuiPL4MxkpRMaaqcP8kbLuyzjRiUSw0f_3A8jnvJbN3HfrhAZXWrSzN_T6Z-_stGfuDNecAFaXiZXqhdVNptOrTovMoUlzPbLzrvcgA1vqqpHUJzM1ozm_htQjMiNwQQvPQRHZBbdHTlRcwM2rWDgngEN0UKE8SWW0BhIYvWMRZNXPiUlGEcFhCAl2zSBSzaUSWpQCaVg2esqZLo_XGTV0juRABLPcXeMNq7vmKxUCeyorQsU9wtrW6MM43pjLjkmct_7VJ5Wayds9o7k9XkMTJd7zQ1pKdH9ndnUPB_Nz5wriRCJelqwkzPpHqbDyJm1m00)
 
 
-# Use case omschrijvingen
+# 3. Use case omschrijvingen
 In dit hoofdstuk worden alle use cases verder uitgewerkt om zo een duidelijk beeld te schetsen van de manier waarop de gebruiker het systeem gebruikt.
 
 Voor elke Use case wordt een volledige Use case omschrijving weergegeven. Hier wordt beschreven voor wie de Use case is en wie erbij gebaat is dat de Use case wordt voltooid. Ook wordt er beschreven waar het systeem en de gebruiker (acteur) aan moet voldoen voordat de Use case kan uitgevoerd worden. De succesgarantie bepaalt wanneer de Use case is voltooid en de speciale eisen geven non-functionele eisen aan. Verder wordt er in detail ingegaan op hoe de gebruiker met het systeem communiceert en wat het systeem teruggeeft.
@@ -99,10 +100,10 @@ De volgende randvoorwaarden gelden voor alle Use cases <u>behalve</u> [Uitvoeren
 - De startup van het systeem is uitgevoerd;
 - Er zijn gegevens uit de startup aanwezig in het systeem.
 
-<h2 id='report-absence'>Indienen afmelding</h2>
+<h2 id='report-absence'>3.1. Indienen afmelding</h2>
 Alle muzikanten die in een orkest zitten en een instrument bespelen kunnen zich afmelden voor geplande repetities. Dit doet een lid door de datum van afwezigheid aan te geven. Ook wordt er aangegeven of het lid meerdere repetities afwezig is en hoeveel dit er dan zijn. Verder kan er een reden opgegeven worden voor de afmelding.
 
-### Volledige Use case omschrijving
+### 3.1.1. Volledige Use case omschrijving
 
 | Use case sectie                                                                                               | Opmerking                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -120,7 +121,7 @@ Alle muzikanten die in een orkest zitten en een instrument bespelen kunnen zich 
 | **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               | Verwachtingen: 1-20 keer per week                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | **Diversen**<br />*Zoals openstaande kwesties.*                                                               | *Mogelijkheden onderzoeken met betrekking tot een wachtrij inzetten om het afmeldingsformulier te verzenden wanneer er weer verbinding is met het internet, als dit niet het geval was tijdens het invoeren van het afmeldformulier.*                                                                                                                                                                                                                   |
 
-### Systeem Sequence Diagram
+### 3.1.2. Systeem Sequence Diagram
 
 ![PlantUML SSD report absence](http://www.plantuml.com/plantuml/svg/JKz1JWCn3Bpd5LQvW1GUq1vGAr1kS2WlyAQcH4tibUqS-dlIfPNsCXfxnfhntXpLUwjmf5dK0ISZpXJiKdX6nGOVz8EzUXBsBsm4Hvd4PMMOC5_EAfrFxr95uIaTqZPjLmxpQwM1Ml8jAmJCBWgR7NnsAxaWRm0Dsdq8uye7cv4Tlg_cr6woBIo4XmrUt-wx7UZI_l1V_haRQGJH_4iZ5EEGqOGBdoCi3qSWFhs4_S3Hvmy0)
 
@@ -130,10 +131,10 @@ Alle muzikanten die in een orkest zitten en een instrument bespelen kunnen zich 
 - `start`: De datum vanaf wanneer de **muzikant** afwezig is;
 - `end`: De datum waarop de **muzikant** weer aanwezig is, dit veld is optioneel.
 
-<h2 id='sign-up-event'>Aanmelden evenement</h2>
+<h2 id='sign-up-event'>3.2. Aanmelden evenement</h2>
 
 Een muzikant kan zichzelf aanmelden voor evenementen als de muzikant hiervoor is uitgenodigd. Deze uitnodigingen zijn te zien in het mededelingenoverzicht. De gebruiker krijgt hier ook een notificatie over. Als een muzikant zich wil aanmelden voor een evenement hoeft de muzikant enkel aan te geven dat hij/zij erbij is. Als een evenement de mogelijjkheid geeft opmerkingen te plaatsen kan de muzikant dit doen voordat hij zich aanmeld.
-### Volledige Use case omschrijving
+### 3.2.1. Volledige Use case omschrijving
 
 | Use case sectie                                                                                               | Opmerking                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -151,16 +152,16 @@ Een muzikant kan zichzelf aanmelden voor evenementen als de muzikant hiervoor is
 | **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               | Verwachtingen: 10-100 keer per maand.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | **Diversen**<br />*Zoals openstaande kwesties.*                                                               | *Mogelijkheden onderzoeken met betrekking tot een wachtrij inzetten om de aanmelding voor een evenement te verzenden wanneer er weer verbinding is met het internet, als dit niet het geval was tijdens het aanmelden.*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
-### Systeem Sequence Diagram
+### 3.2.2.  Systeem Sequence Diagram
 ![PlantUML SSD sign up event ](http://www.plantuml.com/plantuml/svg/NOf1IiOm44RtESNmkr6e1sWNKb6pquNY0QRfM4AJIPYP2BszhLIGV_FnPjuRrL2ivUHqZLnHC8FQbcXVYU7AJ1ZMHKhZ-Qca8d3Z7ttl-t_5CtrXI-OBsnjcWlSo5IlEOR2zlmpmsZI6Y7m1LCZduIgAxLIH3JusDSg7rbzoxY-3-uVpDu36XJ_hopUntTAn7JGbwK0eewntRYIUMqu_)
 - `event`: Het evenement waar de **muzikant** zich voor aanmeld;
 - `user`: De geauthenticeerde **muzikant**;
 - `remark`: Opmerkingen vanuit de **muzikant**, dit veld is optioneel afhankelijk van de mogelijkheid vanuit het evenement.
 
-<h2 id='plan-event'>Plannen evenement</h2>
+<h2 id='plan-event'> 3.3. Plannen evenement</h2>
 
 Moderators kunnen evenementen plannen voor verschillende muzikanten, commissies, secties, instrumentgroepen en/of orkesten. Om een evenement te plannen moet een moderator een datum, start- en eindtijd, een titel en de genodigden invoeren. De moderator kiest uit een keuzemenu wie er voor een evenement zijn uitgenodigd. Voor de eindtijd kan er een vast tijdstip gekozen worden of een schatting. Verder kan een evenement meerdere dagen duren. Ook kan er aangegeven worden dat de genodigde een invulveld moet invullen. Dit wordt gedaan door een selectievak. Het invulveld is altijd verplicht.
-### Volledige Use case omschrijving
+### 3.3.1. Volledige Use case omschrijving
 
 | Use case sectie                                                                                               | Opmerking                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -178,7 +179,7 @@ Moderators kunnen evenementen plannen voor verschillende muzikanten, commissies,
 | **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               | Verwachting: 5-10 keer per maand                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | **Diversen**<br />*Zoals openstaande kwesties.*                                                               | *Mogelijkheden onderzoeken met betrekking tot een wachtrij inzetten om de aanmelding voor een evenement te verzenden wanneer er weer verbinding is met het internet, als dit niet het geval was tijdens het aanmelden.*                                                                                                                                                                                                                                                                |
 
-### Systeem Sequence Diagram
+### 3.3.2. Systeem Sequence Diagram
 ![PlantUML SSD plan event](http://www.plantuml.com/plantuml/svg/JO_1IWD138RlynIXNXGgdhi7QL7tfeZw0kbCbD2PP9ba2trxPrOBUmd_dtm4lhqvLfzBXlUC0dGcyM0dbWah5Z2_P6gpSkpGwdB4UFgfEajwqgmLRiR3k1jtA-APld7EFghu6nQ23psgQmWOlV6R0GwfiB0vzlu00xngejhR1j1WuKBxvHnvGd7ul9XJwJTRqlNN_UF_Oe2fMRnqYTj5PGk9B5QUd5LQGQSjBCfVN5eaIN-1vSnEP7TXttPTzHS0)
 
 - `event`: De naam van het evenement welke wordt aangemaakt;
@@ -188,10 +189,10 @@ Moderators kunnen evenementen plannen voor verschillende muzikanten, commissies,
 - `endTime`: De eindtijd van het evenement;
 - `invitees`: Een lijst met alle genodigden voor het evenement.
 
-<h2 id='dispatch-notice'>Afhandelen mededeling</h2>
+<h2 id='dispatch-notice'>3.4. Afhandelen mededeling</h2>
 
 Moderators kunnen mededelingen maken om te versturen naar verschillende muzikanten, commissies, secties, instrumentgroepen en/of orkesten. Deze mededelingen bestaan uit een titel, een inhoud en mogelijke bijlagen. Als de mededeling wordt verzonden krijgen de geadresseerden een melding op de telefoon van een lid. De geadresseerde kunnen via de melding de mededeling openen en bijlagen downloaden.
-### Volledige Use case omschrijving
+### 3.4.1. Volledige Use case omschrijving
 
 | Use case sectie                                                                                               | Opmerking                                                                                                                                                                                                                                                                                                           |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -209,7 +210,7 @@ Moderators kunnen mededelingen maken om te versturen naar verschillende muzikant
 | **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               | minimaal: 1 keer per week.<br/> verwachting: 1-5 keer per week.                                                                                                                                                                                                                                                     |
 | **Diversen**<br />*Zoals openstaande kwesties.*                                                               | *Mogelijkheid om notificaties te sturen naar IOS/OSX systemen via een Progressive WebApplication(PWA). Mogelijkheden zijn [hier](https://stackoverflow.com/questions/63819485/sending-push-notifications-to-ios-from-pwa/64576541#64576541) te vinden.*                                                             |
 
-### Systeem Sequence Diagram
+### 3.4.2. Systeem Sequence Diagram
 ![PlantUML SSD dispatch notice](http://www.plantuml.com/plantuml/svg/JOwnJWCn44Jx-ufLQ40wH9qhK2BGTQI0BzZO2rd5zfwySqN-7fy5KXfhFFFqj0S7Lwmv3NxLid3bJE_opMl2R0KdpaAVTZRO7N3cSFsfjfRuPiagFSp7UJ_lxmZ7BKbxguOk7pYWWRk9ZZ5hqRRmLhpGH1yMfVzsn4uT79e56dJX0lgwEIHlc_VqBtj-_IicYkeB8rnE1Wto24MIaO8LIC58372uv9Pzf2hDgrj-6WvIOZll5m00)
 
 - `title`: De titel van de mededeling;
@@ -217,7 +218,7 @@ Moderators kunnen mededelingen maken om te versturen naar verschillende muzikant
 - `attachments`: Een lijst met optionele bijlagen;
 - `recipients`: Een lijst met ontvangers. Dit kunnen muzikanten, commissies, secties, instrumentgroepen en/of orkesten zijn.
 
-<h2 id='execute-startup'>Uitvoeren startup</h2>
+<h2 id='execute-startup'>3.5. Uitvoeren startup</h2>
 
 Als het systeem voor het eerst wordt gebruikt moet er een startup worden uitgevoerd. Dit zorgt ervoor dat de vereniging zelf kan bepalen welke gegevens er in het systeem komen.
 
@@ -228,7 +229,7 @@ Daarna wordt er gevraagd om secties toe te voegen. Secties bestaan wederom allee
 Daarna wordt er gevraagd om instrumenten toe te voegen. Bij het toevoegen van instrumenten wordt er gevraagd naar de naam, de sectie en in welk orkest het instrument voorkomt. Bij het kiezen van orkesten is het mogelijk om uit een selectieveld te kiezen met daarin de eerder aangemaakte orkesten.
 
 Na de instrumenten wordt er gevraagd naar de gebruikers van het systeem. Er kan een csv bestand met emailadressen worden geïmporteerd. Deze emailadressen kunnen daarna verbonden worden met instrumenten en orkesten.
-### Volledige Use case omschrijving
+### 3.5.1. Volledige Use case omschrijving
 
 | Use case sectie                                                                                               | Opmerking                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -246,7 +247,7 @@ Na de instrumenten wordt er gevraagd naar de gebruikers van het systeem. Er kan 
 | **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               | 1 keer per muziekvereniging.                                                                                                                                                                                                                                                                                                                                                                                                         |
 | **Diversen**<br />*Zoals openstaande kwesties.*                                                               | - *Mogelijkheden onderzoeken met betrekking tot een wachtrij inzetten om de aanmelding voor een evenement te verzenden wanneer er weer verbinding is met het internet, als dit niet het geval was tijdens het aanmelden.*<br />- *Onderzoeken wat de beste manier is om overzicht te geven van alle ingevulde gegevens.*                                                                                                             |
 
-### Systeem Sequence Diagram
+### 3.5.2. Systeem Sequence Diagram
 
 ![PlantUML SDD execute startup](http://www.plantuml.com/plantuml/svg/JOzDJWCn38NtEOLLDY2L0xGBr0eqInRq19wC0Qk9FOeTYTuUfmMfk_VpHNa-c6FpNWlG3-Nk1BTWJNPcMR5XZUHIHjuu3_AkcJ6VlvfsMLwrQ8E7wJZjfjqTyKQVs8jFAlwEbU13PtLD2RC7lzd3SQai79-6tm0Qu0XIl7RElA8ud2xcL4TdLvNIbNb--VFx_-sds_J7NFgyXMxKR0iiiRnN4WzZb9rLGcdBtnGDsbCwa2pZi5y0)
 - `club`: De naam van de vereniging;
@@ -256,10 +257,10 @@ Na de instrumenten wordt er gevraagd naar de gebruikers van het systeem. Er kan 
 - `orchestras`: Een lijst met alle toegevoegde orkesten.
 
 
-<h2 id='assign-mod'>Toewijzen moderator</h2>
+<h2 id='assign-mod'>3.6. Toewijzen moderator</h2>
 
 Dit doet de beheerder door naar een overzicht te gaan van alle leden. Daaruit kiest de beheerder iemand die moderator wordt. Daarna selecteert de beheerder de nieuwe rol van de gebruiker.
-### Volledige Use case omschrijving
+### 3.6.1. Volledige Use case omschrijving
 
 | Use case sectie                                                                                               | Opmerking                                                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -277,12 +278,12 @@ Dit doet de beheerder door naar een overzicht te gaan van alle leden. Daaruit ki
 | **Frequentie van voorkomen**<br />*Invloeden op onderzoek, testen en timing van implementatie.*               | Verwachting: 0-10 keer per jaar.                                                                                                                                                                                                                                                                             |
 | **Diversen**<br />*Zoals openstaande kwesties.*                                                               | *Nut van notificatie naar nieuwe moderators onderzoeken.*                                                                                                                                                                                                                                                    |
 
-### Systeem Sequence Diagram
+### 3.6.2. Systeem Sequence Diagram
 ![SDD Toewijzen moderator](http://www.plantuml.com/plantuml/svg/NOun3i8m34NtdC8g2mmSe1rGAr0s6E04RXAgg4bSnSxGsvDM38Z5ilzxbdxFWbbA38fddnRC685b3QxExCqV6T7CKwQIx9K2PJZeGRUw_J5kxeqbYAOa3umEdZIIa59efFfD1uEDFdaMh7S3o81ReEgtUECNJ0AlbSN5ZV6-ARKxSBvyWwuozbEwapqMTfbFgdV9rguV)
 
 - `users`: Een lijst aan muzikant(en) welke als moderator worden toegewezen.
 
-# Andere functionele eisen
+# 4. Andere functionele eisen
 
 In dit hoofdstuk worden andere functionele eisen gesteld aan de applicatie. Aan de eisen in deze lijst moeten voldaan worden maar zijn het niet waard om te specificeren in een volledige Use case omschrijving.
 
@@ -295,7 +296,7 @@ In dit hoofdstuk worden andere functionele eisen gesteld aan de applicatie. Aan 
 | FR5  | Alle muzikanten kunnen ten alle tijden alle evenementen bekijken.                                                                          |
 | FR6  | Alle  concepten zijn te vinden op de respectievelijke pagina's.                                                                            |
 
-# Non-functionele eisen
+# 5. Non-functionele eisen
 
 In dit hoofdstuk zullen er een aantal non-functionele eisen worden opgesteld. Deze eisen zijn gecategoriseerd in [FURPS+](https://nl.wikipedia.org/wiki/FURPS).
 
@@ -316,7 +317,7 @@ In dit hoofdstuk zullen er een aantal non-functionele eisen worden opgesteld. De
 | NFR13 | Het systeem moet gebruik maken van HTTP/2.0 in combinatie met HTTPS om de veiligheid van de gebruikergegevens te waarborgen.                                               | Interfaces     |
 
 
-# Gebruikersinterface sketches
+# 6. Gebruikersinterface sketches
 
 Alle interface sketches zijn gemaakt in Figma. De sketches zijn [hier](https://www.figma.com/files/project/25996599/Design-system?fuid=951214027458416875) te vinden.
 

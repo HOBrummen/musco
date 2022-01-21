@@ -3,39 +3,38 @@ layout: default
 ---
 
 <article class="page">
+	<aside class="sidebar"> {{ content | toc_only }} </aside>
 
-  <h1>{{ page.title }}</h1>
+	<div class="entry">
+		<h1>{{ page.title }}</h1>
 
-  <div class="entry">
-    {{ content }}
-  </div>
-	{% if page.sources or page.authors %}
-	<hr />
-	{% if page.authors%}
-	<div class="author">
-		Author(s):
-		<ul>
-			{% for author in page.authors %}
+		{{ content | inject_anchors }}
+		{% if page.sources or page.authors %}
+		<hr />
+		{% if page.authors%}
+		<div class="author">
+			Author(s):
+			<ul>
+				{% for author in page.authors %}
 				<li>
 					<p>{{ author }}</p>
 				</li>
-			{% endfor %}
-		</ul>
+				{% endfor %}
+			</ul>
+		</div>
+		{% endif %} {% if page.sources %}
+		<div class="source">
+			Sources:
+			<ul>
+				{% for source in page.sources %}
+				<li>
+					<a target="_blank" href="{{source.link}}" rel="noopener noreferrer">
+						{{source.text}}
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+		{% endif %} {% endif %}
 	</div>
-	{% endif %}
-	{% if page.sources %}
-	<div class="source">
-		Sources:
-		<ul>
-			{% for source in page.sources %}
-			<li>
-				<a target="_blank" href="{{source.link}}" rel="noopener noreferrer">
-					{{source.text}}
-				</a>
-			</li>
-			{% endfor %}
-		</ul>
-	</div>
-	{% endif %}
-	{% endif %}
 </article>
