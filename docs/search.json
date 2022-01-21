@@ -7,7 +7,7 @@
       "url"      : "{{ site.baseurl }}{{ document.url }}",
       "category" : "{{ document.categories | join: ', '}}",
       "date"     : "{{ document.date | date: "%B %e, %Y" }}",
-      "sources"  : "{{ document.sources }}
+      "sources"  : "{{ document.sources }}"
     }{% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]

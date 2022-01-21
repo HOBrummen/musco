@@ -1,4 +1,4 @@
-@startuml
+@startuml Domain model
 skinparam style strictuml
 skinparam DefaultFontName Roboto
 skinparam backgroundColor #FAF9F9
