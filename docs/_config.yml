@@ -56,7 +56,27 @@ enforce_ssl: https://docs.musco.nl
 compress_html:
   clippings: all
   comments: [""]
-  endings: [html, head, body, li, dt, dd, rt, rp, optgroup, option, colgroup, caption, thead, tbody, tfoot, tr, td, th]
+  endings:
+    [
+      html,
+      head,
+      body,
+      li,
+      dt,
+      dd,
+      rt,
+      rp,
+      optgroup,
+      option,
+      colgroup,
+      caption,
+      thead,
+      tbody,
+      tfoot,
+      tr,
+      td,
+      th,
+    ]
   profile: false
   blanklines: false
   ignore:
@@ -75,7 +95,7 @@ kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     # Use existing pygments syntax highlighting css
-    css_class: 'highlight'
+    css_class: "highlight"
 
 # Set the Sass partials directory, as we're using @imports
 sass:
@@ -89,7 +109,7 @@ plugins:
   - jekyll-paginate
   - jekyll-purgecss
 
-include: ['_pages']
+include: ["_pages"]
 
 css_dir: "assets"
 
@@ -101,3 +121,8 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
+  - package.json
+  - package-lock.json
+  - .gitignore
+  - purgecss.config.js
+  - diagrams/

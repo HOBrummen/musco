@@ -1,0 +1,16 @@
+{
+	"name": "musco-docs",
+	"version": "0.0.1",
+	"description": "To run this website on a local development machine, you must have [Ruby](https://www.ruby-lang.org/en/) installed.<br/> You can download it from [RubyInstaller](https://rubyinstaller.org/).<br/> Once installed, you can run below commands:",
+	"main": "index.html",
+	"scripts": {
+		"dev": "pnpm start",
+		"start": "bundle exec jekyll s --incremental",
+		"prestart": "bundle exec jekyll clean"
+	},
+	"author": "Imre Boersma",
+	"license": "ISC",
+	"dependencies": {
+		"purgecss": "^4.1.3"
+	}
+}

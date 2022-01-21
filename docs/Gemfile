@@ -4,14 +4,14 @@ source "https://rubygems.org"
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-gem "jekyll", "~> 4.2.1"
-gem "webrick", "~> 1.7.0"
-gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+gem "jekyll"
+gem "webrick"
+gem 'wdm' if Gem.win_platform?
 
 group :jekyll_plugins do
-	gem "jekyll-sitemap", "~> 1.4.0"
-	gem "jekyll-feed", "~> 0.15.1"
-	gem "jekyll-seo-tag", "~> 2.7.1"
-	gem "jekyll-paginate", "~> 1.1.0"
-	gem "jekyll-purgecss", "~> 0.3.0"
+	gem "jekyll-sitemap"
+	gem "jekyll-feed"
+	gem "jekyll-seo-tag"
+	gem "jekyll-paginate"
+	gem "jekyll-purgecss"
 end
