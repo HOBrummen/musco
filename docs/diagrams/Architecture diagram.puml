@@ -1,0 +1,20 @@
+@startuml Architecture diagram
+skinparam backgroundColor #FAF9F9
+skinparam DefaultFontName Roboto
+
+actor Musician
+
+archimate #Technology "Web application" as webapp <<technology-device>>
+archimate #Technology "API server" as api <<technology-device>>
+archimate #Technology "Database" as db <<technology-node>>
+archimate #Application "HTTPS/2.0" as https <<application-interface>>
+archimate #Application "REST/GRAPHQL" as rest <<application-interface>>
+archimate #Application "ODBC" as odbc <<application-interface>>
+
+Musician -right-> https
+https -right-> webapp
+webapp -down-> rest
+rest -right-> api
+api -down-> odbc
+odbc -right-> db
+@enduml
