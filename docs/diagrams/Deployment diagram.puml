@@ -1,0 +1,28 @@
+@startuml Deployment diagram
+skinparam backgroundColor #FAF9F9
+skinparam DefaultFontName Roboto
+skinparam style strictuml
+left to right direction
+node "User" <<device>> {
+	node "Web browser" <<HTML5>> {
+		artifact "VueJS Application" as app
+	}
+}
+
+node "DB server" <<device>> {
+	database "PostgreSQL v14.1" as db
+}
+
+node "HTTP server" <<device>> as http {
+	node "API" <<NodeJS v17.4>> as api {
+		component Middleware as middleware
+		component "Route handler" as routes
+		component "Application logic" as logic
+	}
+}
+
+app <--> middleware : HTTPS/2.0
+middleware <--> routes
+routes <--> logic
+logic <--> db : ODBC
+@enduml

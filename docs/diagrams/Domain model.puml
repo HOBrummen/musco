@@ -8,37 +8,37 @@ skinparam nodesep 75
 hide empty members
 
 class User {
-name
-email
-orchestras
-instruments
+	name
+	email
+	orchestras
+	instruments
 }
 
 class Absence {
-user
-ochestra
-reasoning
-start
-end
+	user
+	ochestra
+	reasoning
+	start
+	end
 }
 
 class Instrument {
-name
-section
+	name
+	section
 }
 
 class Notice {
-title
-excerpt
-description
-recipients
-attachments
+	title
+	excerpt
+	description
+	recipients
+	attachments
 }
 
 class Attachment {
-title
-location
-type
+	title
+	location
+	type
 }
 
 class Role
@@ -47,22 +47,22 @@ class Admin
 class Moderator
 
 class Event {
-name
-excerpt
-description
-invitees
-attendees
-date
-startTime
-endTime
+	name
+	excerpt
+	description
+	invitees
+	attendees
+	date
+	startTime
+	endTime
 }
 
 class Orchestra {
-name
+	name
 }
 
 class Attendance {
-remark
+	remark
 }
 
 Role <|-- Musician

@@ -1,20 +1,27 @@
 @startuml Architecture diagram
+!include <archimate/Archimate>
+
 skinparam backgroundColor #FAF9F9
 skinparam DefaultFontName Roboto
+skinparam style strictuml
 
-actor Musician
+Business_Actor(actor, "Musician")
 
-archimate #Technology "Web application" as webapp <<technology-device>>
-archimate #Technology "API server" as api <<technology-device>>
-archimate #Technology "Database" as db <<technology-node>>
-archimate #Application "HTTPS/2.0" as https <<application-interface>>
-archimate #Application "REST/GRAPHQL" as rest <<application-interface>>
-archimate #Application "ODBC" as odbc <<application-interface>>
+Grouping(http, "HTTP server") {
+	Technology_Device(webapp, "Web application")
+	Technology_Device(api, "API")
+}
 
-Musician -right-> https
-https -right-> webapp
-webapp -down-> rest
-rest -right-> api
-api -down-> odbc
-odbc -right-> db
-@enduml
+Group(dbserver,
+	"PostgreSQL server") {
+		Technology_Device(db, "PostgreSQL DB")
+	}
+
+	Application_Service(firebase, "Firebase")
+
+	Rel_Access_Down(actor, webapp, "HTTP/2.0")
+	Rel_Serving_Right(webapp, api, "HTTP/2.0")
+	Rel_Serving_Right(api, dbserver, "ODBC")
+	Rel_Aggregation_Up(firebase, webapp)
+	Rel_Aggregation_Up(firebase, api)
+	@enduml
