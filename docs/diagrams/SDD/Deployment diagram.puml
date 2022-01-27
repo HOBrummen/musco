@@ -1,0 +1,43 @@
+@startuml Deployment diagram
+skinparam backgroundColor #FAF9F9
+skinparam DefaultFontName Roboto
+skinparam style strictuml
+left to right direction
+
+node "User" <<device>> {
+node "Web browser" <<HTML5>> {
+artifact "VueJS Application" as app
+}
+}
+
+node "DB server" <<device>> {
+database "PostgreSQL v14.1" as db
+}
+
+node "Firebase SDK" as sdk
+node "Firebase Admin SDK" as admin_sdk
+
+node "HTTP server" <<device>> as http {
+node "API" <<NodeJS v17.4>> as api {
+package Presentation {
+component Middleware as middleware
+component "Route handler" as routes
+}
+package Business {
+component "Application logic" as logic
+}
+package Persistence {
+component Models as models
+}
+}
+}
+
+app <--> routes: HTTPS/2.0
+routes <--> middleware
+routes <--> logic
+middleware <--> logic
+app <--> sdk: SDK
+logic <--> admin_sdk: SDK
+logic <--> models
+models <--> db : "TCP/IP"
+@enduml

@@ -1,0 +1,58 @@
+@startuml
+skinparam backgroundColor #FAF9F9
+skinparam DefaultFontName Roboto
+skinparam style strictuml
+
+package Common {
+package Constants {}
+
+package Decorators {
+package Netadata {}
+package Requests {}
+}
+
+package Exceptions {}
+package Guards {}
+
+package Interfaces {}
+
+package Middlewares {
+package Models {}
+}
+
+package Pipes {}
+
+package Serializers {
+package Exceptions as serializerExceptions {}
+package Responses as serializerResponses {}
+}
+package Validations {}
+
+package Helpers {
+package Exceptions {}
+package Responses {}
+}
+
+package Config {
+package API {}
+package App {}
+package Cache {}
+package Database {
+package Postgres {}
+}
+package Queue {}
+package Session {}
+package Storage {}
+}
+
+package Providers {
+package Cache {
+package Redis {}
+}
+
+package Database {
+package Postgres {}
+}
+
+package Queue {}
+@enduml
