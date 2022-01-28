@@ -1,58 +1,19 @@
-@startuml
+@startuml Class diagram
 skinparam backgroundColor #FAF9F9
 skinparam DefaultFontName Roboto
 skinparam style strictuml
+hide empty members
 
-package Common {
-package Constants {}
+set namespaceSeparator ::
 
-package Decorators {
-package Netadata {}
-package Requests {}
-}
+class App::Controller {}
+class App::Module {}
+class App::Service {}
 
-package Exceptions {}
-package Guards {}
+class User::Controller {}
+class User::Module {}
+class User::Service {}
 
-package Interfaces {}
-
-package Middlewares {
-package Models {}
-}
-
-package Pipes {}
-
-package Serializers {
-package Exceptions as serializerExceptions {}
-package Responses as serializerResponses {}
-}
-package Validations {}
-
-package Helpers {
-package Exceptions {}
-package Responses {}
-}
-
-package Config {
-package API {}
-package App {}
-package Cache {}
-package Database {
-package Postgres {}
-}
-package Queue {}
-package Session {}
-package Storage {}
-}
-
-package Providers {
-package Cache {
-package Redis {}
-}
-
-package Database {
-package Postgres {}
-}
-
-package Queue {}
+' Module bundling
+App::Module --> User::Module
 @enduml
