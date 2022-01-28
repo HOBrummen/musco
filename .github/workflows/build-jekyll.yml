@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: "14"
+          node-version: '14'
       # Install PurgeCSS (needs to be in your package.json)
       - run: npm install
       # Build site
