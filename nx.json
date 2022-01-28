@@ -27,16 +27,8 @@
       }
     ]
   },
-  "projects": {
-    "api": {
-      "tags": []
-    },
-    "app": {
-      "tags": []
-    },
-    "app-e2e": {
-      "tags": [],
-      "implicitDependencies": ["app"]
-    }
-  }
+	"cli": {
+		"defaultCollection": "@nrwl/nest"
+	},
+	"defaultProject": "api"
 }
