@@ -1,32 +1,32 @@
 {
-  "npmScope": "musco",
-  "affected": {
-    "defaultBase": "main"
-  },
-  "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
-    ".eslintrc.json": "*"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/nx-cloud",
-      "options": {
-        "cacheableOperations": ["build", "test", "e2e"],
-        "accessToken": "NDdlYzQ1MzgtMTc1Yi00NDhiLTk4YWQtYTNkYmJkMjM0N2JkfHJlYWQtd3JpdGU="
-      }
-    }
-  },
-  "targetDependencies": {
-    "build": [
-      {
-        "target": "build",
-        "projects": "dependencies"
-      }
-    ]
-  },
+	"npmScope": "musco",
+	"affected": {
+		"defaultBase": "main"
+	},
+	"implicitDependencies": {
+		"package.json": {
+			"dependencies": "*",
+			"devDependencies": "*"
+		},
+		".eslintrc.json": "*"
+	},
+	"tasksRunnerOptions": {
+		"default": {
+			"runner": "@nrwl/nx-cloud",
+			"options": {
+				"cacheableOperations": ["build", "test", "e2e"],
+				"accessToken": "NDdlYzQ1MzgtMTc1Yi00NDhiLTk4YWQtYTNkYmJkMjM0N2JkfHJlYWQtd3JpdGU="
+			}
+		}
+	},
+	"targetDependencies": {
+		"build": [
+			{
+				"target": "build",
+				"projects": "dependencies"
+			}
+		]
+	},
 	"cli": {
 		"defaultCollection": "@nrwl/nest"
 	},
