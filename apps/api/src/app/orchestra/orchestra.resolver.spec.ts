@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { UserResolver } from './user.resolver'
+import { OrchestraResolver } from './orchestra.resolver'
 
-describe('UserResolver', () => {
-	let resolver: UserResolver
+describe('OrchestraResolver', () => {
+	let resolver: OrchestraResolver
 
 	beforeEach(async () => {
 		const module: TestingModule = await Test.createTestingModule({
-			providers: [UserResolver]
+			providers: [OrchestraResolver]
 		}).compile()
 
-		resolver = module.get<UserResolver>(UserResolver)
+		resolver = module.get<OrchestraResolver>(OrchestraResolver)
 	})
 
 	it('should be defined', () => {

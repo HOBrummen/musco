@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model instrument {
+  name                        String            @db.VarChar(128)
+  section                     String            @db.Uuid
+  id                          String            @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  section_instrumentTosection section           @relation(fields: [section], references: [id], onDelete: Cascade, map: "FK_instrument_section")
+  user_instrument             user_instrument[] @ignore
+}
+
+model orchestra {
+  id             String           @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  name           String           @db.VarChar(128)
+  user_orchestra user_orchestra[] @ignore
+}
+
+model section {
+  id         String       @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  name       String       @db.VarChar(128)
+  instrument instrument[]
+}
+
+model user {
+  id              String            @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  name            String            @db.VarChar(128)
+  email           String            @db.VarChar(320)
+  user_instrument user_instrument[] @ignore
+  user_orchestra  user_orchestra[]  @ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model user_instrument {
+  user                                   String     @db.Uuid
+  instrument                             String     @db.Uuid
+  instrument_instrumentTouser_instrument instrument @relation(fields: [instrument], references: [id], onDelete: Cascade, map: "FK_user_instrument_instrument")
+  user_userTouser_instrument             user       @relation(fields: [user], references: [id], onDelete: Cascade, map: "FK_user_instrument_user")
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model user_orchestra {
+  user                                String    @db.Uuid
+  orchestra                           String    @db.Uuid
+  orchestra_orchestraTouser_orchestra orchestra @relation(fields: [orchestra], references: [id], onDelete: Cascade, map: "FK_user_orchestra_orchestra")
+  user_userTouser_orchestra           user      @relation(fields: [user], references: [id], onDelete: Cascade, map: "FK_user_orchestra_user")
+
+  @@ignore
+}

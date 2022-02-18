@@ -1,0 +1,24 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Instrument {
+  name: String!
+  section: String!
+}
+
+type Orchestra {
+  name: String!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  orchestras: [Orchestra!]!
+  instruments: [Instrument!]!
+}
+
+type Query {
+  users: [User!]!
+}
